@@ -1,9 +1,9 @@
 # Site settings
-title: qhy15
-email: qian.haiyi.2008@gmail.com
-description: ""
-baseurl: "http://qhy15.github.com//aboutme.html“
-url: "http://qhy15.github.com"
+title: Your awesome title
+email: your-email@domain.com
+description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+baseurl: ""
+url: "http://yourdomain.com"
 
 # Build settings
 markdown: kramdown
