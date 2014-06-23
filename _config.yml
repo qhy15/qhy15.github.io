@@ -1,0 +1,10 @@
+# Site settings
+title: qhy15’s blog
+email: qian.haiyi.2008@gmail.com
+description: ""
+baseurl: "http://qhy15.github.com//aboutme.html“
+url: "http://qhy15.github.com"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
