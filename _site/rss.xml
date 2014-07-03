@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <channel>
     <title>demo</title>
     <description>Havee Hobbies, Linux Tips Record。</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <link>/rss.xml</link>
+    <lastBuildDate>Thu, 03 Jul 2014 17:26:00 +0800</lastBuildDate>
+    <pubDate>Thu, 03 Jul 2014 17:26:00 +0800</pubDate>
+    <ttl>1800</ttl>
+
     
-      <item>
-        <title>这是一篇示例文章</title>
-        <description>&lt;h3&gt;示例标题&lt;/h3&gt;
+    <item>
+      <title><![CDATA[这是一篇示例文章]]></title>
+      <description>&lt;h3&gt;示例标题&lt;/h3&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;示例代码库
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;!-- more --&gt;
@@ -32,10 +35,10 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
 </description>
-        <pubDate>Thu, 17 Apr 2014 00:00:00 +0800</pubDate>
-        <link>/example/2014-04/this-is-example.html</link>
-        <guid isPermaLink="true">/example/2014-04/this-is-example.html</guid>
-      </item>
+      <link>/example/2014-04/this-is-example.html</link>
+      <guid>/example/2014-04/this-is-example</guid>
+      <pubDate>Thu, 17 Apr 2014 00:00:00 +0800</pubDate>
+    </item>
     
   </channel>
 </rss>
