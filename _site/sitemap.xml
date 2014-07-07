@@ -5,6 +5,20 @@
 
   
   <url>
+    <loc>/jekyll/update/2014-06/only-for-test.html</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2014-06-24T01:39:02+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>/jekyll/update/2014-06/welcome-to-jekyll.html</loc>
+    <changefreq>daily</changefreq>
+    <lastmod>2014-06-23T23:59:43+08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>/example/2014-04/this-is-example.html</loc>
     <changefreq>daily</changefreq>
     <lastmod>2014-04-17T00:00:00+08:00</lastmod>

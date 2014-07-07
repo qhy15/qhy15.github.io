@@ -11,7 +11,7 @@ redcarpet:
 # 参考 http://github.com/vmg/redcarpet/blob/master/README.markdown
 
 # 核心设置
-title : demo
+title : "qhy15's space"
 tagline: Site Tagline
 keywords : iOS, MAC, other, qhy15	#tag的section name
 description: Havee Hobbies, Linux Tips Record。
@@ -19,7 +19,7 @@ author :
   name : qhy15
   email :
   github : qhy15
-  gitcafe : Havee
+  gitcafe : 
   twitter :
   facebook :
   feedburner :
@@ -44,7 +44,7 @@ JB :
 
   # 评论，provider 留空或 false 关闭评论
   comments :
-    provider :                      # 采用那种评论，可填 duoshuo 或 disqus 或其他 ...
+    provider : duoshuo                     # 采用那种评论，可填 duoshuo 或 disqus 或其他 ...
     disqus :
       short_name :
     livefyre :
@@ -57,7 +57,7 @@ JB :
       width: 580
       colorscheme: light
     duoshuo :
-      name : shortname              # 多说上获取的 shortname
+      name : qhy15              # 多说上获取的 shortname
       rcomments :                   # 首页侧边栏最新评论
         num: 10                     # 最新评论显示条数
         avatar : 0                  # 最新评论是否显示头像
@@ -108,4 +108,4 @@ JB :
   blogroll : false                   # true 开启，留空或 false 关闭
   brlist :
     - text : qhy15's Space
-      url : //qhy15.github.io/
+      url : //qhy15.github.io/about.html
