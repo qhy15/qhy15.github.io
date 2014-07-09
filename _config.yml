@@ -5,9 +5,15 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 pygments: true
 paginate: 5
 
-markdown: redcarpet             # markdown 语法解释引擎
+encoding: utf-8
+
+markdown: redcarpet		            # markdown 语法解释引擎
 redcarpet:
     extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
+
+#markdown: rdiscount				# 语法解释引擎，以支持post中的中文题目
+#rdiscount:
+#	extensions: ["fenced_code_blocks", "tables", "highlight", "strikethrough"]
 # 参考 http://github.com/vmg/redcarpet/blob/master/README.markdown
 
 # 核心设置
