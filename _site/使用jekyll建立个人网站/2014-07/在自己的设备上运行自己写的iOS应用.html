@@ -3,8 +3,8 @@
 <html lang="zh">
   <head>
     <meta charset="UTF-8">
-    <title>从写博客的时间间隔可以看出我松懈了多久 - qhy15's space</title>
-    
+    <title>解决jekyll因为categories含有中文而崩溃的问题 - qhy15's space</title>
+    <meta name="description" content="Run Your App on a Connected Device">
     <meta name="keywords" content="iOS, MAC, other, qhy15">
     <meta name="author" content="qhy15">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
     <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" media="all">
 
     <link rel="shortcut icon" href="/favicon.png">
-    <link rel="canonical" href="/%E7%81%8C%E6%B0%B4/2011-05/%E4%BB%8E%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%87%BA%E6%88%91%E6%9D%BE%E6%87%88%E4%BA%86%E5%A4%9A%E4%B9%85.html">
+    <link rel="canonical" href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">
     <!-- fav and touch icons -->
     <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.png">
@@ -159,35 +159,54 @@
     </div>
     <div class="page-header">
       <h2>
-        从写博客的时间间隔可以看出我松懈了多久
+        解决jekyll因为categories含有中文而崩溃的问题
         
       </h2>
 	  <div class="bottom">
 		<span class="glyphicon glyphicon-user"></span><p>qhy15</p>
-	    <span class="glyphicon glyphicon-calendar"></span><p>03 May 2011</p>
-		<span class="glyphicon glyphicon-folder-open"></span> <a href="/categories.html#灌水-ref" title="灌水"><p>灌水</p></a>
-		<span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#灌水-ref" title="灌水"><p>灌水</p></a><a href="/tags.html#摘抄-ref" title="摘抄"><p>摘抄</p></a><a href="/tags.html#blogspot-ref" title="blogspot"><p>blogspot</p></a>
+	    <span class="glyphicon glyphicon-calendar"></span><p>10 Jul 2014</p>
+		<span class="glyphicon glyphicon-folder-open"></span> <a href="/categories.html#使用jekyll建立个人网站-ref" title="使用jekyll建立个人网站"><p>使用jekyll建立个人网站</p></a>
+		<span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#iOS-ref" title="iOS"><p>iOS</p></a>
 		
       </div>
     </div>
-    <div class="wrapper"><p>自从上次抒发了志向之后又过了很久，51看了闲书几本漫画几本。</p>
+    <div class="wrapper"><h3>1、在Xcode中添加开发者账户id</h3>
 
-<blockquote>
-<p>现在我偶尔还是觉得自己可能是电脑天才，只不过没有掉在合适的土壤里而已…而且，我也不确定我还有激情用10000个小时的努力去成为一个电脑天才了。</p>
-</blockquote>
+<ol>
+<li>在官网注册成为developer</li>
+<li>在Xcode中添加你的开发者账户<br>
+<code>Preferences</code>-&gt;<code>Accounts</code></li>
+</ol>
 
-<p>摘自http://book.douban.com/review/3557193/<br>
-何其相似何其巧合。努力吧少年（心智上）！</p>
+<p>添加成功后，显示如下图。
+<a href="https://www.flickr.com/photos/126036794@N04/14614922791" title="Screen Shot 2014-07-10 at 下午1.48.49 by haiyi qian, on Flickr"><img src="https://farm6.staticflickr.com/5531/14614922791_3d0255084c_n.jpg" width="320" height="168" alt="Screen Shot 2014-07-10 at 下午1.48.49" align="center"></a></p>
 
-<p><br></p>
+<p>如果没交会员费（99美刀一年，iOS与Mac），就会提示<code>Joint</code>。<br>
+点击<code>Joint</code>弹出网页，可申请加入
+<code>iOS Developer Program - Membership for one year</code></p>
 
-<p>看<a href="http://book.douban.com/subject/1859140/">上学记</a>，断断续续一个月总算是囫囵吞枣的看了一遍。今天最有感悟的一句话是</p>
+<h3>2、绑定用来运行应用的设备</h3>
 
-<blockquote>
-<p>The only escape is stupidity.</p>
-</blockquote>
+<ol>
+<li>把iPhone/iPad连接到Mac。</li>
+<li>Xcode中，<code>Window</code> &gt; <code>Organizer</code>，选择需要绑定的设备。</li>
+<li>点击<code>Use for Development</code>按钮；或者，点击下方的<code>Add to Member Center</code>按钮。选择自己的开发者账户。</li>
+<li>在Xcode工具栏<code>Run</code>按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。</li>
+</ol>
 
-<p>上学记应该好好再看看再思考，有些感悟稍纵即逝。</p>
+<h3>3、运行自己编写的iOS应用</h3>
+
+<p>保持设备与Mac连接状态，点击<code>Run</code>。  </p>
+
+<p><strong>注意</strong>：</p>
+
+<ul>
+<li>确保设备处于解锁状态，即，没有锁屏。</li>
+<li><p>在弹出的<code>codesign wants to sign using key</code>警示框中选择<code>allow</code><br>
+原因如下，即每次运行时都要验证你是不是开发者。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Once the code is built, Xcode will need to sign the app using your developer certificate. If prompted with a message that reads “codesign wants to sign using key “&lt;key name&gt;” in your keychain select either Allow or Always Allow (if you do not wish to be prompted during future builds). Once signing is complete the status will change to “Installing &lt;appname&gt;.app on iPhone…”.
+</code></pre></div></li>
+</ul>
 </div>
     <div class="cc">
 		<br>
@@ -204,11 +223,11 @@
       <div class="col-md-6">
         <div class="btn-group">
           
-          <a class="btn btn-primary btn-sm" href="/%E7%81%8C%E6%B0%B4/2011-04/%E8%A2%AB%E4%BA%BA%E9%81%97%E5%BF%98%E7%9A%84%E8%A7%92%E8%90%BD.html" title="被人遗忘的角落">&laquo; Prev</a>
+          <a class="btn btn-primary btn-sm" href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html" title="2013已经过去，2014来了">&laquo; Prev</a>
           
           <a class="btn btn-primary btn-sm" href="/archive.html">Archive</a>
           
-          <a class="btn btn-primary btn-sm" href="/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html" title="在面对人生的种种态度中，逃避是最可耻的。">Next &raquo;</a>
+          <a class="btn btn-primary btn-sm" href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html" title="解决jekyll因为categories含有中文而崩溃的问题">Next &raquo;</a>
           
         </div>
       </div>
@@ -219,7 +238,7 @@
     </div>
     
 <div id="comments">
-  <div class="ds-thread" data-thread-key="/%E7%81%8C%E6%B0%B4/2011-05/从写博客的时间间隔可以看出我松懈了多久"  data-title="从写博客的时间间隔可以看出我松懈了多久 - qhy15's space"></div>
+  <div class="ds-thread" data-thread-key="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/在自己的设备上运行自己写的iOS应用"  data-title="解决jekyll因为categories含有中文而崩溃的问题 - qhy15's space"></div>
 </div>
 
 

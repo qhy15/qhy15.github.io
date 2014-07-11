@@ -4,8 +4,8 @@
     <title>qhy15's space</title>
     <description>Havee Hobbies, Linux Tips Record。</description>
     <link>/rss.xml</link>
-    <lastBuildDate>Wed, 09 Jul 2014 17:12:46 +0800</lastBuildDate>
-    <pubDate>Wed, 09 Jul 2014 17:12:46 +0800</pubDate>
+    <lastBuildDate>Fri, 11 Jul 2014 17:22:55 +0800</lastBuildDate>
+    <pubDate>Fri, 11 Jul 2014 17:22:55 +0800</pubDate>
     <ttl>1800</ttl>
 
     
@@ -166,6 +166,51 @@ We can also use &lt;code&gt;addressable/uri&lt;/code&gt;  &lt;/p&gt;
 </description>
       <link>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html</link>
       <guid>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/解决jekyll因为categories含有中文而崩溃的问题</guid>
+      <pubDate>Thu, 10 Jul 2014 00:00:00 +0800</pubDate>
+    </item>
+    
+    <item>
+      <title><![CDATA[解决jekyll因为categories含有中文而崩溃的问题]]></title>
+      <description>&lt;h3&gt;1、在Xcode中添加开发者账户id&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在官网注册成为developer&lt;/li&gt;
+&lt;li&gt;在Xcode中添加你的开发者账户&lt;br&gt;
+&lt;code&gt;Preferences&lt;/code&gt;-&amp;gt;&lt;code&gt;Accounts&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;添加成功后，显示如下图。
+&lt;a href=&quot;https://www.flickr.com/photos/126036794@N04/14614922791&quot; title=&quot;Screen Shot 2014-07-10 at 下午1.48.49 by haiyi qian, on Flickr&quot;&gt;&lt;img src=&quot;https://farm6.staticflickr.com/5531/14614922791_3d0255084c_n.jpg&quot; width=&quot;320&quot; height=&quot;168&quot; alt=&quot;Screen Shot 2014-07-10 at 下午1.48.49&quot; align=&quot;center&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果没交会员费（99美刀一年，iOS与Mac），就会提示&lt;code&gt;Joint&lt;/code&gt;。&lt;br&gt;
+点击&lt;code&gt;Joint&lt;/code&gt;弹出网页，可申请加入
+&lt;code&gt;iOS Developer Program - Membership for one year&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;2、绑定用来运行应用的设备&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;把iPhone/iPad连接到Mac。&lt;/li&gt;
+&lt;li&gt;Xcode中，&lt;code&gt;Window&lt;/code&gt; &amp;gt; &lt;code&gt;Organizer&lt;/code&gt;，选择需要绑定的设备。&lt;/li&gt;
+&lt;li&gt;点击&lt;code&gt;Use for Development&lt;/code&gt;按钮；或者，点击下方的&lt;code&gt;Add to Member Center&lt;/code&gt;按钮。选择自己的开发者账户。&lt;/li&gt;
+&lt;li&gt;在Xcode工具栏&lt;code&gt;Run&lt;/code&gt;按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;3、运行自己编写的iOS应用&lt;/h3&gt;
+
+&lt;p&gt;保持设备与Mac连接状态，点击&lt;code&gt;Run&lt;/code&gt;。  &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;确保设备处于解锁状态，即，没有锁屏。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在弹出的&lt;code&gt;codesign wants to sign using key&lt;/code&gt;警示框中选择&lt;code&gt;allow&lt;/code&gt;&lt;br&gt;
+原因如下，即每次运行时都要验证你是不是开发者。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Once the code is built, Xcode will need to sign the app using your developer certificate. If prompted with a message that reads “codesign wants to sign using key “&amp;lt;key name&amp;gt;” in your keychain select either Allow or Always Allow (if you do not wish to be prompted during future builds). Once signing is complete the status will change to “Installing &amp;lt;appname&amp;gt;.app on iPhone…”.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+      <link>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html</link>
+      <guid>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/在自己的设备上运行自己写的iOS应用</guid>
       <pubDate>Thu, 10 Jul 2014 00:00:00 +0800</pubDate>
     </item>
     
@@ -378,25 +423,6 @@ CMGS现在在湖南卫视工作。还是高大上。&lt;/p&gt;
       <link>/%E7%81%8C%E6%B0%B4/2010-05/%E8%BF%98%E6%B2%A1%E8%8D%92%E5%BA%9F%E4%B9%88.html</link>
       <guid>/%E7%81%8C%E6%B0%B4/2010-05/还没荒废么</guid>
       <pubDate>Tue, 11 May 2010 03:48:00 +0800</pubDate>
-    </item>
-    
-    <item>
-      <title><![CDATA[我居然开始玩仙剑4了！！]]></title>
-      <description>&lt;p&gt;09-11-05Can&amp;#39;t believe that!!&lt;/p&gt;
-
-&lt;p&gt;我居然开始玩仙剑4了，足以见得我已经很无聊了，不想做事的心情了。完全没有说仙剑4不好的意思。只是我真的对这种单机的不是即时类型的游戏不感冒，ol的你砍我一刀我砍你一刀的类型我也不喜欢。&lt;/p&gt;
-
-&lt;p&gt;玩了2天了，觉得没意思。也不是ol的，而且剧情慢说话慢人物说话和动作分开的，总之就是什么都慢。。。又是我讨厌的打斗类型。。。&lt;/p&gt;
-
-&lt;p&gt;不想玩了，虽说要欣赏剧情，可是我连看电视进都会快进的人，是只在乎关键信息的。。。而且又不是大家所熟知的李逍遥赵灵儿林月如。。。&lt;/p&gt;
-
-&lt;p&gt;放弃&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ps:其实我玩完了。
-    ————2014.07.03
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-      <link>/acg/2009-11/%E6%88%91%E5%B1%85%E7%84%B6%E5%BC%80%E5%A7%8B%E7%8E%A9%E4%BB%99%E5%89%914%E4%BA%86%EF%BC%81%EF%BC%81.html</link>
-      <guid>/acg/2009-11/我居然开始玩仙剑4了！！</guid>
-      <pubDate>Thu, 05 Nov 2009 17:23:00 +0800</pubDate>
     </item>
     
   </channel>

@@ -4,7 +4,7 @@
   <title>qhy15's space</title>
   <link href="//atom.xml" rel="self"/>
   <link href=""/>
-  <updated>2014-07-09T17:12:46+08:00</updated>
+  <updated>2014-07-11T17:22:55+08:00</updated>
   <id></id>
   <author>
     <name>qhy15</name>
@@ -41,6 +41,34 @@ jekyll 2.0.3 | Error:  invalid byte sequence in US-ASCII
 build运行时，打印详细错误：
 Generating... 
 /Users/qhy15/.rv...</content>
+  </entry>
+  
+  <entry>
+    <title>解决jekyll因为categories含有中文而崩溃的问题</title>
+    <link href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html"/>
+    <updated>2014-07-10T00:00:00+08:00</updated>
+    <id>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/在自己的设备上运行自己写的iOS应用</id>
+    <content type="html">1、在Xcode中添加开发者账户id
+
+
+在官网注册成为developer
+在Xcode中添加你的开发者账户
+Preferences-&amp;gt;Accounts
+
+
+添加成功后，显示如下图。
+
+
+如果没交会员费（99美刀一年，iOS与Mac），就会提示Joint。
+点击Joint弹出网页，可申请加入
+iOS Developer Program - Membership for one year
+
+2、绑定用来运行应用的设备
+
+
+把iPhone/iPad连接到Mac。
+Xcode中，Window &amp;gt; Organizer，选择需要绑定的设备。
+点击Use for Development按...</content>
   </entry>
   
   <entry>
