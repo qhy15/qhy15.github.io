@@ -4,8 +4,8 @@
     <title>qhy15's space</title>
     <description>Havee Hobbies, Linux Tips Record。</description>
     <link>/rss.xml</link>
-    <lastBuildDate>Fri, 11 Jul 2014 17:22:55 +0800</lastBuildDate>
-    <pubDate>Fri, 11 Jul 2014 17:22:55 +0800</pubDate>
+    <lastBuildDate>Fri, 11 Jul 2014 17:27:41 +0800</lastBuildDate>
+    <pubDate>Fri, 11 Jul 2014 17:27:41 +0800</pubDate>
     <ttl>1800</ttl>
 
     
@@ -170,7 +170,7 @@ We can also use &lt;code&gt;addressable/uri&lt;/code&gt;  &lt;/p&gt;
     </item>
     
     <item>
-      <title><![CDATA[解决jekyll因为categories含有中文而崩溃的问题]]></title>
+      <title><![CDATA[在自己的设备上运行自己写的iOS应用]]></title>
       <description>&lt;h3&gt;1、在Xcode中添加开发者账户id&lt;/h3&gt;
 
 &lt;ol&gt;
