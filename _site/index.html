@@ -166,6 +166,23 @@
 
 
 <div class="wrapper">
+  <h2 class="h2 entry-title"><a href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">在自己的设备上运行自己写的iOS应用</a></h2>
+  
+  1、在Xcode中添加开发者账户id 在官网注册成为developer 在Xcode中添加你的开发者账户 Preferences-&gt;Accounts 添加成功后，显示如下图。 如果没交会员费（99美刀一年，iOS与Mac），就会提示Joint。 点击Joint弹出网页，可申请加入 iOS Developer Program - Membership for one year 2、绑定用来运行应用的设备 把iPhone/iPad连接到Mac。 Xcode中，Window &gt; Organizer，选择需要绑定的设备。 点击Use for Development按钮；或者，点击下方的Add to Member Center按钮。选择自己的开发者账户。 在Xcode工具栏Run按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。 3、运行自己编写的iOS应用 保持设备与Mac连接状态，点击Run。 注意： 确保设备处于解锁状态，即，没有锁屏。 在弹出的codesign wants to sign using key警示框中选择allow 原因如下，即每次运行时都要验证你是不是开发者。 Once the code is built, Xcode will need to sign the app...
+  
+
+  <div class="status">
+    <div class="col-md-10 meta visible-lg visible-md">
+      <span class="glyphicon glyphicon-calendar"></span><p>11 Jul 2014</p>
+      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#iOS-ref" title="iOS"><p>iOS</p></a>
+      <span class="glyphicon glyphicon-comment"></span><a href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/在自己的设备上运行自己写的iOS应用" data-count-type="comments"></span></p></a>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="wrapper">
   <h2 class="h2 entry-title"><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html">解决jekyll因为categories含有中文而崩溃的问题</a></h2>
   
   背景 jekyll 版本 2.0.3 之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。 问题描述 ①在.md中加入 categories: &quot;中文&quot; 出现如下错误： jekyll 2.0.3 | Error: invalid byte sequence in US-ASCII ②在.md的名称中涉及到中文，例如 2010-05-10-灌水.md 也会出现①中相同错误。 思考 1、定位错误 build运行时，打印详细错误： Generating... /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `gsub!&#39;: invalid byte sequence in US-ASCII (ArgumentError) from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `sanitized_path&#39; from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/post.rb:276:in `destination&#39; from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `block in new_files&#39; from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:420:in `block (2 levels)...
@@ -176,23 +193,6 @@
       <span class="glyphicon glyphicon-calendar"></span><p>10 Jul 2014</p>
       <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#jekyll-ref" title="jekyll"><p>jekyll</p></a>
       <span class="glyphicon glyphicon-comment"></span><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/解决jekyll因为categories含有中文而崩溃的问题" data-count-type="comments"></span></p></a>
-    </div>
-    
-    <div class="clearfix"></div>
-  </div>
-</div>
-
-<div class="wrapper">
-  <h2 class="h2 entry-title"><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">在自己的设备上运行自己写的iOS应用</a></h2>
-  
-  1、在Xcode中添加开发者账户id 在官网注册成为developer 在Xcode中添加你的开发者账户 Preferences-&gt;Accounts 添加成功后，显示如下图。 如果没交会员费（99美刀一年，iOS与Mac），就会提示Joint。 点击Joint弹出网页，可申请加入 iOS Developer Program - Membership for one year 2、绑定用来运行应用的设备 把iPhone/iPad连接到Mac。 Xcode中，Window &gt; Organizer，选择需要绑定的设备。 点击Use for Development按钮；或者，点击下方的Add to Member Center按钮。选择自己的开发者账户。 在Xcode工具栏Run按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。 3、运行自己编写的iOS应用 保持设备与Mac连接状态，点击Run。 注意： 确保设备处于解锁状态，即，没有锁屏。 在弹出的codesign wants to sign using key警示框中选择allow 原因如下，即每次运行时都要验证你是不是开发者。 Once the code is built, Xcode will need to sign the app...
-  
-
-  <div class="status">
-    <div class="col-md-10 meta visible-lg visible-md">
-      <span class="glyphicon glyphicon-calendar"></span><p>10 Jul 2014</p>
-      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#iOS-ref" title="iOS"><p>iOS</p></a>
-      <span class="glyphicon glyphicon-comment"></span><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/在自己的设备上运行自己写的iOS应用" data-count-type="comments"></span></p></a>
     </div>
     
     <div class="clearfix"></div>
@@ -402,7 +402,11 @@ The only escape is stupidity.
     	</a></li>
      
     	<li><a href="/categories.html#使用jekyll建立个人网站-ref">
-    		使用jekyll建立个人网站 <span>2</span>
+    		使用jekyll建立个人网站 <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#开发ios应用入门-ref">
+    		开发ios应用入门 <span>1</span>
     	</a></li>
     
   
@@ -417,9 +421,9 @@ The only escape is stupidity.
         <h4>Recently Posts</h4>
         <ul>
         
-          <li><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html">解决jekyll因为categories含有中文而崩溃的问题</a></li>
+          <li><a href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">在自己的设备上运行自己写的iOS应用</a></li>
         
-          <li><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">在自己的设备上运行自己写的iOS应用</a></li>
+          <li><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html">解决jekyll因为categories含有中文而崩溃的问题</a></li>
         
           <li><a href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html">2013已经过去，2014来了</a></li>
         
