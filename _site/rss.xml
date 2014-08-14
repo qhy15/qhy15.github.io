@@ -4,10 +4,133 @@
     <title>qhy15's space</title>
     <description>Havee Hobbies, Linux Tips Record。</description>
     <link>/rss.xml</link>
-    <lastBuildDate>Fri, 11 Jul 2014 17:34:21 +0800</lastBuildDate>
-    <pubDate>Fri, 11 Jul 2014 17:34:21 +0800</pubDate>
+    <lastBuildDate>Thu, 14 Aug 2014 15:58:08 +0800</lastBuildDate>
+    <pubDate>Thu, 14 Aug 2014 15:58:08 +0800</pubDate>
     <ttl>1800</ttl>
 
+    
+    <item>
+      <title><![CDATA[Osx10.9.4安装subversion1.8.10]]></title>
+      <description>&lt;h4&gt;1. 从&lt;a href=&quot;http://archive.apache.org/dist/subversion/&quot;&gt;官网&lt;/a&gt;下载安装subversion-1.8.10的源码&lt;/h4&gt;
+
+&lt;h4&gt;2. 安装serf&lt;/h4&gt;
+
+&lt;p&gt;1.8以上的SVN需要使用serf。所以需要先安装serf。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5&gt;2.1 下载serf&lt;/h5&gt;
+
+&lt;p&gt;使用terminal执行：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cd ~/path/to/subversion-1.8.10
+sh get-deps.sh serf
+cd serf/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中get-deps.sh包含下载安装Subversion所需文件的指令。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;# get-deps.sh -- download the dependencies useful for building Subversion&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5&gt;2.1 安装Scons&lt;/h5&gt;
+
+&lt;p&gt;Scons的README文件中写到：&lt;code&gt;serf uses SCons 2.3 for its build system.&lt;/code&gt;。所以还需要先安装Scons才能再安装serf。&lt;/p&gt;
+
+&lt;p&gt;以下为安装serf的步骤。&lt;/p&gt;
+
+&lt;h5&gt;2.1.1 从&lt;a href=&quot;http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz&quot;&gt;http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz&lt;/a&gt;位置下载Scons。&lt;/h5&gt;
+
+&lt;h5&gt;2.1.2  将下载的Scons-local-2.3.0.tar.gz解压到serf目录下。&lt;/h5&gt;
+
+&lt;h5&gt;2.1.2  进入到serf目录下执行&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ python scons.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;注意，如果Scons解压到serf的Scons-local-2.3.0目录下，则需要在命令中指明。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ python scons-local-2.3.0/scons.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;2.1.3  创建一个symlink &amp;#39;scons&amp;#39;指向scons.py的路径。&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo ln -s /path/to/subversion-1.8.10/serf/scons-local-2.3.0/scons.py scons
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中，&lt;code&gt;/path/to/subversion-1.8.10/serf/&lt;/code&gt;为2.1.2中解压Scons的根目录。    &lt;/p&gt;
+
+&lt;h5&gt;2.2 设定目录&lt;/h5&gt;
+
+&lt;p&gt;在安装serf之前，需要指定APR、APU、OPENSSL和PREFIX的路径。&lt;/p&gt;
+
+&lt;p&gt;其中，APR、APU、OPENSSL默认路径为&lt;code&gt;/usr&lt;/code&gt;；PREFIX默认路径为&lt;code&gt;/usr/local&lt;/code&gt;，需要修改为安装serf的路径。&lt;/p&gt;
+
+&lt;p&gt;运行&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ scons APR=/path/to/apr APU=/path/to/apu OPENSSL=/openssl/base PREFIX=/path/to/prefix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;或者直接 &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    MacBook-Pro:serf qhy15$ open .saved_config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在文件中修改。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    make
+    sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;2.3安装serf&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ scons install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;结束后用&lt;code&gt;scons -c&lt;/code&gt;清理；如果有问题可以用&lt;code&gt;scons check&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;官方文档说的是直接运行上述语句，而我必须加上python才行否则会提示找不到scons指令。&lt;/p&gt;
+
+&lt;p&gt;我输入的指令为&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;MacBook-Pro:serf qhy15$ python scons install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;3. 安装SVN&lt;/h4&gt;
+
+&lt;p&gt;进入svn根目录（即serf目录的上一层），然后一次执行：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;./configure 
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;即可。&lt;/p&gt;
+
+&lt;p&gt;输入&lt;code&gt;svn --version&lt;/code&gt;，应该输出&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;svn, version 1.8.10 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;4.更新Xcode路径&lt;/h4&gt;
+
+&lt;p&gt;Xcode使用自己安装的svn，版本低，如果打开使用高版本svn的项目会提示：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;requires a newer version of Subversion than Xcode supports.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;所以需要更新Xcode的svn路径。&lt;/p&gt;
+
+&lt;p&gt;执行以下指令即可。先备份原svn指令，再生成指向新版的快捷方式。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cd /Applications/Xcode.app/Contents/Developer/usr/bin/
+sudo mv ./svn ./svn.org
+sudo mv ./svnadmin ./svnadmin.org
+sudo mv ./svndumpfilter ./svndumpfilter.org
+sudo mv ./svnlook ./svnlook.org
+sudo mv ./svnrdump ./svnrdump.org
+sudo mv ./svnserve ./svnserve.org
+sudo mv ./svnsync ./svnsync.org
+sudo mv ./svnversion ./svnversion.org
+
+sudo ln -Ff /usr/local/bin/svn svn
+sudo ln -Ff /usr/local/bin/svnadmin svnadmin
+sudo ln -Ff /usr/local/bin/svndumpfilter svndumpfilter
+sudo ln -Ff /usr/local/bin/svnlook svnlook
+sudo ln -Ff /usr/local/bin/svnrdump svnrdump
+sudo ln -Ff /usr/local/bin/svnserve svnserve
+sudo ln -Ff /usr/local/bin/svnsync svnsync
+sudo ln -Ff /usr/local/bin/svnversion svnversion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;参考资料&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/19177699/using-svn-1-8-3-with-xcode-5&quot;&gt;Stack Overflow:using SVN 1.8.3 with Xcode 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://samoldak.com/updating-to-svn-1-8-for-mac-os-x-10-8/&quot;&gt;Updating to SVN 1.8 for Mac OSX 10.8&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+      <link>/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</link>
+      <guid>/2014-08/OSX10.9.4安装Subversion1.8.10</guid>
+      <pubDate>Thu, 14 Aug 2014 00:00:00 +0800</pubDate>
+    </item>
     
     <item>
       <title><![CDATA[在自己的设备上运行自己写的iOS应用]]></title>
@@ -410,19 +533,6 @@ CMGS现在在湖南卫视工作。还是高大上。&lt;/p&gt;
       <link>/%E7%81%8C%E6%B0%B4/2010-12/%E8%BF%99%E5%8D%8A%E5%B9%B4%E4%B9%B0%E4%B9%A6%E4%B9%9F%E5%A4%AA%E5%A4%9A%E4%BA%86%E5%90%A7%E3%80%82.html</link>
       <guid>/%E7%81%8C%E6%B0%B4/2010-12/这半年买书也太多了吧。</guid>
       <pubDate>Sun, 12 Dec 2010 17:28:00 +0800</pubDate>
-    </item>
-    
-    <item>
-      <title><![CDATA[还没荒废么]]></title>
-      <description>&lt;p&gt;一年没有来了。&lt;/p&gt;
-
-&lt;p&gt;墙了一年。一年前的我还梦想英国留学，积极准备。&lt;/p&gt;
-
-&lt;p&gt;现在也算积极吧，毕设80分够上电子科大就行。留学什么的再试一次吧。&lt;/p&gt;
-</description>
-      <link>/%E7%81%8C%E6%B0%B4/2010-05/%E8%BF%98%E6%B2%A1%E8%8D%92%E5%BA%9F%E4%B9%88.html</link>
-      <guid>/%E7%81%8C%E6%B0%B4/2010-05/还没荒废么</guid>
-      <pubDate>Tue, 11 May 2010 03:48:00 +0800</pubDate>
     </item>
     
   </channel>

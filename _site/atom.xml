@@ -4,12 +4,37 @@
   <title>qhy15's space</title>
   <link href="//atom.xml" rel="self"/>
   <link href=""/>
-  <updated>2014-07-11T17:34:21+08:00</updated>
+  <updated>2014-08-14T15:58:08+08:00</updated>
   <id></id>
   <author>
     <name>qhy15</name>
   </author>
 
+  
+  <entry>
+    <title>Osx10.9.4安装subversion1.8.10</title>
+    <link href="/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html"/>
+    <updated>2014-08-14T00:00:00+08:00</updated>
+    <id>/2014-08/OSX10.9.4安装Subversion1.8.10</id>
+    <content type="html">1. 从官网下载安装subversion-1.8.10的源码
+
+2. 安装serf
+
+1.8以上的SVN需要使用serf。所以需要先安装serf。
+
+
+The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf.
+
+
+2.1 下载serf
+
+使用terminal执行：
+cd ~/path/to/subversion-1.8.10
+sh get-deps.sh serf
+cd serf/
+
+其中get-deps.sh包含下载安装Subversion所...</content>
+  </entry>
   
   <entry>
     <title>在自己的设备上运行自己写的iOS应用</title>
