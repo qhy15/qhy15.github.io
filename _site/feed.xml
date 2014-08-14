@@ -7,7 +7,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Osx10.9.4安装subversion1.8.10</title>
+        <title>OSX10_9_4安装Subversion1_8_10</title>
         <description>&lt;h4&gt;1. 从&lt;a href=&quot;http://archive.apache.org/dist/subversion/&quot;&gt;官网&lt;/a&gt;下载安装subversion-1.8.10的源码&lt;/h4&gt;
 
 &lt;h4&gt;2. 安装serf&lt;/h4&gt;
@@ -124,9 +124,9 @@ sudo ln -Ff /usr/local/bin/svnversion svnversion
 &lt;li&gt;&lt;a href=&quot;http://samoldak.com/updating-to-svn-1-8-for-mac-os-x-10-8/&quot;&gt;Updating to SVN 1.8 for Mac OSX 10.8&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
-        <pubDate>Thu, 14 Aug 2014 00:00:00 +0800</pubDate>
-        <link>/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</link>
-        <guid isPermaLink="true">/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</guid>
+        <pubDate>Thu, 14 Aug 2014 23:55:00 +0800</pubDate>
+        <link>/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</link>
+        <guid isPermaLink="true">/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</guid>
       </item>
     
       <item>

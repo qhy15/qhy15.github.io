@@ -3,7 +3,7 @@
 <html lang="zh">
   <head>
     <meta charset="UTF-8">
-    <title>在自己的设备上运行自己写的iOS应用 - qhy15's space</title>
+    <title>OSX10_9_4安装Subversion1_8_10 - qhy15's space</title>
     
     <meta name="keywords" content="iOS, MAC, other, qhy15">
     <meta name="author" content="qhy15">
@@ -17,7 +17,7 @@
     <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" media="all">
 
     <link rel="shortcut icon" href="/favicon.png">
-    <link rel="canonical" href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">
+    <link rel="canonical" href="/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html">
     <!-- fav and touch icons -->
     <!-- Update these with your own images
     <link rel="shortcut icon" href="images/favicon.png">
@@ -159,54 +159,132 @@
     </div>
     <div class="page-header">
       <h2>
-        在自己的设备上运行自己写的iOS应用
+        OSX10_9_4安装Subversion1_8_10
         
       </h2>
 	  <div class="bottom">
 		<span class="glyphicon glyphicon-user"></span><p>qhy15</p>
-	    <span class="glyphicon glyphicon-calendar"></span><p>11 Jul 2014</p>
-		<span class="glyphicon glyphicon-folder-open"></span> <a href="/categories.html#开发ios应用入门-ref" title="开发ios应用入门"><p>开发ios应用入门</p></a>
-		<span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#iOS-ref" title="iOS"><p>iOS</p></a>
+	    <span class="glyphicon glyphicon-calendar"></span><p>14 Aug 2014</p>
+		<span class="glyphicon glyphicon-folder-open"></span> <a href="/categories.html#osx编程工具-ref" title="osx编程工具"><p>osx编程工具</p></a>
+		<span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#Subversion1.8.x-ref" title="Subversion1.8.x"><p>Subversion1.8.x</p></a><a href="/tags.html#OS X-ref" title="OS X"><p>OS X</p></a>
 		
       </div>
     </div>
-    <div class="wrapper"><h3>1、在Xcode中添加开发者账户id</h3>
+    <div class="wrapper"><h4>1. 从<a href="http://archive.apache.org/dist/subversion/">官网</a>下载安装subversion-1.8.10的源码</h4>
+
+<h4>2. 安装serf</h4>
+
+<p>1.8以上的SVN需要使用serf。所以需要先安装serf。</p>
+
+<blockquote>
+<p>The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf.</p>
+</blockquote>
+
+<h5>2.1 下载serf</h5>
+
+<p>使用terminal执行：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd ~/path/to/subversion-1.8.10
+sh get-deps.sh serf
+cd serf/
+</code></pre></div>
+<p>其中get-deps.sh包含下载安装Subversion所需文件的指令。</p>
+
+<blockquote>
+<p># get-deps.sh -- download the dependencies useful for building Subversion</p>
+</blockquote>
+
+<h5>2.1 安装Scons</h5>
+
+<p>Scons的README文件中写到：<code>serf uses SCons 2.3 for its build system.</code>。所以还需要先安装Scons才能再安装serf。</p>
+
+<p>以下为安装serf的步骤。</p>
+
+<h5>2.1.1 从<a href="http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz">http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz</a>位置下载Scons。</h5>
+
+<h5>2.1.2  将下载的Scons-local-2.3.0.tar.gz解压到serf目录下。</h5>
+
+<h5>2.1.2  进入到serf目录下执行</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ python scons.py
+</code></pre></div>
+<p>注意，如果Scons解压到serf的Scons-local-2.3.0目录下，则需要在命令中指明。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ python scons-local-2.3.0/scons.py
+</code></pre></div>
+<h5>2.1.3  创建一个symlink &#39;scons&#39;指向scons.py的路径。</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo ln -s /path/to/subversion-1.8.10/serf/scons-local-2.3.0/scons.py scons
+</code></pre></div>
+<p>其中，<code>/path/to/subversion-1.8.10/serf/</code>为2.1.2中解压Scons的根目录。    </p>
+
+<h5>2.2 设定目录</h5>
+
+<p>在安装serf之前，需要指定APR、APU、OPENSSL和PREFIX的路径。</p>
+
+<p>其中，APR、APU、OPENSSL默认路径为<code>/usr</code>；PREFIX默认路径为<code>/usr/local</code>，需要修改为安装serf的路径。</p>
+
+<p>运行</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ scons APR=/path/to/apr APU=/path/to/apu OPENSSL=/openssl/base PREFIX=/path/to/prefix
+</code></pre></div>
+<p>或者直接 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    MacBook-Pro:serf qhy15$ open .saved_config
+</code></pre></div>
+<p>在文件中修改。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">    make
+    sudo make install
+</code></pre></div>
+<h5>2.3安装serf</h5>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ scons install
+</code></pre></div>
+<p>结束后用<code>scons -c</code>清理；如果有问题可以用<code>scons check</code>。</p>
+
+<p>官方文档说的是直接运行上述语句，而我必须加上python才行否则会提示找不到scons指令。</p>
+
+<p>我输入的指令为</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">MacBook-Pro:serf qhy15$ python scons install
+</code></pre></div>
+<h4>3. 安装SVN</h4>
+
+<p>进入svn根目录（即serf目录的上一层），然后一次执行：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">./configure 
+make
+sudo make install
+</code></pre></div>
+<p>即可。</p>
+
+<p>输入<code>svn --version</code>，应该输出</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">svn, version 1.8.10 
+</code></pre></div>
+<h4>4.更新Xcode路径</h4>
+
+<p>Xcode使用自己安装的svn，版本低，如果打开使用高版本svn的项目会提示：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">requires a newer version of Subversion than Xcode supports.
+</code></pre></div>
+<p>所以需要更新Xcode的svn路径。</p>
+
+<p>执行以下指令即可。先备份原svn指令，再生成指向新版的快捷方式。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">cd /Applications/Xcode.app/Contents/Developer/usr/bin/
+sudo mv ./svn ./svn.org
+sudo mv ./svnadmin ./svnadmin.org
+sudo mv ./svndumpfilter ./svndumpfilter.org
+sudo mv ./svnlook ./svnlook.org
+sudo mv ./svnrdump ./svnrdump.org
+sudo mv ./svnserve ./svnserve.org
+sudo mv ./svnsync ./svnsync.org
+sudo mv ./svnversion ./svnversion.org
+
+sudo ln -Ff /usr/local/bin/svn svn
+sudo ln -Ff /usr/local/bin/svnadmin svnadmin
+sudo ln -Ff /usr/local/bin/svndumpfilter svndumpfilter
+sudo ln -Ff /usr/local/bin/svnlook svnlook
+sudo ln -Ff /usr/local/bin/svnrdump svnrdump
+sudo ln -Ff /usr/local/bin/svnserve svnserve
+sudo ln -Ff /usr/local/bin/svnsync svnsync
+sudo ln -Ff /usr/local/bin/svnversion svnversion
+</code></pre></div>
+<h4>参考资料</h4>
 
 <ol>
-<li>在官网注册成为developer</li>
-<li>在Xcode中添加你的开发者账户<br>
-<code>Preferences</code>-&gt;<code>Accounts</code></li>
+<li><a href="http://stackoverflow.com/questions/19177699/using-svn-1-8-3-with-xcode-5">Stack Overflow:using SVN 1.8.3 with Xcode 5</a></li>
+<li><a href="http://samoldak.com/updating-to-svn-1-8-for-mac-os-x-10-8/">Updating to SVN 1.8 for Mac OSX 10.8</a></li>
 </ol>
-
-<p>添加成功后，显示如下图。
-<a href="https://www.flickr.com/photos/126036794@N04/14614922791" title="Screen Shot 2014-07-10 at 下午1.48.49 by haiyi qian, on Flickr"><img src="https://farm6.staticflickr.com/5531/14614922791_3d0255084c_n.jpg" width="320" height="168" alt="Screen Shot 2014-07-10 at 下午1.48.49" align="center"></a></p>
-
-<p>如果没交会员费（99美刀一年，iOS与Mac），就会提示<code>Joint</code>。<br>
-点击<code>Joint</code>弹出网页，可申请加入
-<code>iOS Developer Program - Membership for one year</code></p>
-
-<h3>2、绑定用来运行应用的设备</h3>
-
-<ol>
-<li>把iPhone/iPad连接到Mac。</li>
-<li>Xcode中，<code>Window</code> &gt; <code>Organizer</code>，选择需要绑定的设备。</li>
-<li>点击<code>Use for Development</code>按钮；或者，点击下方的<code>Add to Member Center</code>按钮。选择自己的开发者账户。</li>
-<li>在Xcode工具栏<code>Run</code>按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。</li>
-</ol>
-
-<h3>3、运行自己编写的iOS应用</h3>
-
-<p>保持设备与Mac连接状态，点击<code>Run</code>。  </p>
-
-<p><strong>注意</strong>：</p>
-
-<ul>
-<li>确保设备处于解锁状态，即，没有锁屏。</li>
-<li><p>在弹出的<code>codesign wants to sign using key</code>警示框中选择<code>allow</code><br>
-原因如下，即每次运行时都要验证你是不是开发者。</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">Once the code is built, Xcode will need to sign the app using your developer certificate. If prompted with a message that reads “codesign wants to sign using key “&lt;key name&gt;” in your keychain select either Allow or Always Allow (if you do not wish to be prompted during future builds). Once signing is complete the status will change to “Installing &lt;appname&gt;.app on iPhone…”.
-</code></pre></div></li>
-</ul>
 </div>
     <div class="cc">
 		<br>
@@ -223,11 +301,11 @@
       <div class="col-md-6">
         <div class="btn-group">
           
-          <a class="btn btn-primary btn-sm" href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html" title="解决jekyll因为categories含有中文而崩溃的问题">&laquo; Prev</a>
+          <a class="btn btn-primary btn-sm" href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html" title="在自己的设备上运行自己写的iOS应用">&laquo; Prev</a>
           
           <a class="btn btn-primary btn-sm" href="/archive.html">Archive</a>
           
-          <a class="btn btn-primary btn-sm" href="/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html" title="OSX10_9_4安装Subversion1_8_10">Next &raquo;</a>
+          <a class="btn btn-primary btn-sm disabled">Next &raquo;</a>
           
         </div>
       </div>
@@ -238,7 +316,7 @@
     </div>
     
 <div id="comments">
-  <div class="ds-thread" data-thread-key="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/在自己的设备上运行自己写的iOS应用"  data-title="在自己的设备上运行自己写的iOS应用 - qhy15's space"></div>
+  <div class="ds-thread" data-thread-key="/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4安装Subversion1.8.10"  data-title="OSX10_9_4安装Subversion1_8_10 - qhy15's space"></div>
 </div>
 
 
