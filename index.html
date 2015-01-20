@@ -1,53 +1,525 @@
----
-layout: page
-description: 
-tagline: 程序员一枚，努力升级中！
----
-{% include JB/setup %}
 
-{% for post in paginator.posts %}
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>qhy15's space</title>
+    
+    <meta name="keywords" content="iOS, MAC, other, qhy15">
+    <meta name="author" content="qhy15">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+
+    <link href="//cdn.bootcss.com/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/assets/themes/havee/css/style.css?body=1" rel="stylesheet" media="all">
+    <link href="/assets/themes/havee/css/pygments.css" rel="stylesheet" media="all">
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" media="all">
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="canonical" href="/">
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="qhy15's space ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="qhy15's space RSS Feed">
+
+  </head>
+
+  <body>
+    <!--[if lte IE 9]>
+    <div class="alert alert-warning">
+      <p>Your Internet Explorer is not supported. Please upgrade your Internet Explorer to version 9+, or use latest <a href="http://www.google.com/chrome/" target="_blank" class="alert-link">Google chrome</a>、<a href="http://www.mozilla.org/firefox/" target="_blank" class="alert-link">Mozilla Firefox</a>.</p>
+      <p>If you are using IE 9 or later, make sure you <a href="http://windows.microsoft.com/en-us/internet-explorer/use-compatibility-view#ie=ie-8" target="_blank" class="alert-link">turn off "Compatibility view"</a>.</p>
+    </div>
+    <![endif]-->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/" title="qhy15's space">qhy15's space</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+          
+
+
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+		  
+		  <li><a href="/about/index.html">About Me</a></li>
+          <li>
+          <form id="search-form" class="form-inline visible-lg" role="form">
+            <input type="text" class="form-control input-sm" placeholder="Search" id="query">
+          </form>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right visible-lg visible-md">
+          <li><a href="/rss.xml" target="_blank" title="RSS"><span class="fa fa-rss fa-lg"></span></a></li>
+          
+          <li><a href="https://github.com/qhy15" target="_blank" title="Github"><span class="fa fa-github fa-lg"></span></a></li>
+          
+          
+          
+          
+          
+          <li><a href="http://weibo.com/qhy15" target="_blank" title="Weibo"><span class="fa fa-weibo fa-lg"></span></a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+    </nav>
+
+    <div class="container">
+      <div class="content">
+        
+        <div class="row">
+
+          <article class="col-md-9 main-contenter">
+            <div id="search-loader" style="display:none;text-align:center">
+              <img src="/assets/themes/havee/images/loading.gif">
+            </div>
+            <div class="page-header-wrapper">
+              <div class="page-header">
+                <h2>  <small>程序员一枚，努力升级中！</small></h2>
+              </div>
+            </div>
+            
+
+
 <div class="wrapper">
-  <h2 class="h2 entry-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-  {% if post.content contains "<!-- more -->" %}
-  {{ post.content | split:'<!-- more -->' | first }}
-  {% else %}
-  {{ post.content | strip_html | truncatewords:50 }}
-  {% endif %}
+  <h2 class="h2 entry-title"><a href="/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html">OSX10.9.4安装Subversion1.8.10</a></h2>
+  
+  1. 从官网下载安装subversion-1.8.10的源码 2. 安装serf 1.8以上的SVN需要使用serf。所以需要先安装serf。 The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf. 2.1 下载serf 使用terminal执行： cd ~/path/to/subversion-1.8.10 sh get-deps.sh serf cd serf/ 其中get-deps.sh包含下载安装Subversion所需文件的指令。 # get-deps.sh -- download the dependencies useful for building Subversion 2014年08月25日 update 注意：这条指令下载的库中serf不是最新的，使用其会出现如下错误： svn:...
+  
 
   <div class="status">
     <div class="col-md-10 meta visible-lg visible-md">
-      <span class="glyphicon glyphicon-calendar"></span><p>{{ post.date | date_to_string }}</p>
-      <span class="glyphicon glyphicon-tags"></span> {% if post.tags %}{% for tag in post.tags %}<a href="/tags.html#{{ tag }}-ref" title="{{ tag }}"><p>{{ tag }}</p></a>{% endfor %}{% endif %}
-      <span class="glyphicon glyphicon-comment"></span><a href="{{ post.url }}#comments"><p>Comments<span class="ds-thread-count" data-thread-key="{{ post.id }}" data-count-type="comments"></span></p></a>
+      <span class="glyphicon glyphicon-calendar"></span><p>14 Aug 2014</p>
+      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#Subversion1.8.x-ref" title="Subversion1.8.x"><p>Subversion1.8.x</p></a><a href="/tags.html#OS X-ref" title="OS X"><p>OS X</p></a>
+      <span class="glyphicon glyphicon-comment"></span><a href="/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4安装Subversion1.8.10" data-count-type="comments"></span></p></a>
     </div>
-    {% if post.content contains "<!-- more -->" %}
-    <a class="btn btn-primary btn-sm pull-right" href="{{ post.url }}"><span class="readmore">Read More &raquo; </span></a>
-    {% endif %}
+    
     <div class="clearfix"></div>
   </div>
 </div>
-{% endfor %}
+
+<div class="wrapper">
+  <h2 class="h2 entry-title"><a href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">在自己的设备上运行自己写的iOS应用</a></h2>
+  
+  1、在Xcode中添加开发者账户id 在官网注册成为developer 在Xcode中添加你的开发者账户 Preferences-&gt;Accounts 添加成功后，显示如下图。 如果没交会员费（99美刀一年，iOS与Mac），就会提示Joint。 点击Joint弹出网页，可申请加入 iOS Developer Program - Membership for one year 2、绑定用来运行应用的设备 把iPhone/iPad连接到Mac。 Xcode中，Window &gt; Organizer，选择需要绑定的设备。 点击Use for Development按钮；或者，点击下方的Add to Member Center按钮。选择自己的开发者账户。 在Xcode工具栏Run按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。 3、运行自己编写的iOS应用 保持设备与Mac连接状态，点击Run。 注意： 确保设备处于解锁状态，即，没有锁屏。 在弹出的codesign wants to sign using key警示框中选择allow 原因如下，即每次运行时都要验证你是不是开发者。 Once the code is built, Xcode will need to sign the app...
+  
+
+  <div class="status">
+    <div class="col-md-10 meta visible-lg visible-md">
+      <span class="glyphicon glyphicon-calendar"></span><p>11 Jul 2014</p>
+      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#iOS-ref" title="iOS"><p>iOS</p></a>
+      <span class="glyphicon glyphicon-comment"></span><a href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/在自己的设备上运行自己写的iOS应用" data-count-type="comments"></span></p></a>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h2 class="h2 entry-title"><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html">解决jekyll因为categories含有中文而崩溃的问题</a></h2>
+  
+  背景 jekyll 版本 2.0.3 之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。 问题描述 ①在.md中加入 categories: &quot;中文&quot; 出现如下错误： jekyll 2.0.3 | Error: invalid byte sequence in US-ASCII ②在.md的名称中涉及到中文，例如 2010-05-10-灌水.md 也会出现①中相同错误。 思考 1、定位错误 build运行时，打印详细错误： Generating... /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `gsub!&#39;: invalid byte sequence in US-ASCII (ArgumentError) from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `sanitized_path&#39; from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/post.rb:276:in `destination&#39; from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `block in new_files&#39; from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:420:in `block (2 levels)...
+  
+
+  <div class="status">
+    <div class="col-md-10 meta visible-lg visible-md">
+      <span class="glyphicon glyphicon-calendar"></span><p>10 Jul 2014</p>
+      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#jekyll-ref" title="jekyll"><p>jekyll</p></a>
+      <span class="glyphicon glyphicon-comment"></span><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/解决jekyll因为categories含有中文而崩溃的问题" data-count-type="comments"></span></p></a>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h2 class="h2 entry-title"><a href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html">2013已经过去，2014来了</a></h2>
+  
+  2013年的总结
+
+学业方面
+
+上半年，我研究生毕业了。
+
+虽然赶论文赶得昏天黑地，怨天怨地，但好歹是过了。
+
+然后毕业散伙饭，人情饭也顺利通过。
+
+工作方面
+
+下半年，我参加工作了，然后在工作2个月后辞掉了工作。
+
+找工作的一切都是我爸出面搞定的，辞职的一切都是我自己出面搞定的。
+
+10月底辞职，11月初搞定了辞职事宜。
+
+其它
+
+11月，12月本来应该学车但是又因为身份证拖延了。
+
+iOS也没有看进去。
+
+生活
+
+并没有减肥成功。
+去峨眉山乐山、西安、张家界凤凰 各旅游一次。
+
+
+
+就这样，2013过去了，迎来了2014
+
+2014我的目标是找到一个新的工作，其实我想说什么都可以，因为工作只是为了改变我的一个状态，一种拖延、得过且过的生活状态。
+但，这个工作的最低标准就是朝九晚五，如果要加班，就要付出相应的报酬。
+
+另，我的终极目标（不排除将来修改，现阶段的终极目标）就是去日本or上海工作。
+
+针对上述，制订2014目标：
+1、找到一份工作，限定在手机游戏、手机APP方向。
+
+
+旨在通过这份工作，弄清手机软件行业的基本术语、基本开发流程、基本所需要求。
+朝着一个方向IOS开发使劲。
+
+
+2、英语能力增加。
+
+
+听力能力增加，基本日常交流-雅思听力6-有声书能够听懂大部分。
+会话能力增加，基本日常交流-雅思口语6。
+阅读能力增加，英文文档看懂-雅思阅读6-看懂原版书（专业&amp;小说）。
+写作能力增加，基本日常交流-雅思作文6。
+
+
+3、日语能力增加。
+
+
+背50音-日常对话-看懂简单漫画（哆啦a梦）-三级水平。
+
+
+4、SKIN&amp;BEATY
+
+* 体重50-55KG.
+* 照着刊物图片穿衣服。
+* 简单裸妆（只擦粉）-眼妆头发。
+
+
+为了能够实现上述的2014目标，每个月都进行总结性记录。
+
+  
+
+  <div class="status">
+    <div class="col-md-10 meta visible-lg visible-md">
+      <span class="glyphicon glyphicon-calendar"></span><p>30 Dec 2013</p>
+      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#总结-ref" title="总结"><p>总结</p></a><a href="/tags.html#blogspot-ref" title="blogspot"><p>blogspot</p></a>
+      <span class="glyphicon glyphicon-comment"></span><a href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013已经过去，2014来了" data-count-type="comments"></span></p></a>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+<div class="wrapper">
+  <h2 class="h2 entry-title"><a href="/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html">在面对人生的种种态度中，逃避是最可耻的。</a></h2>
+  
+  本该是假日结束前匆忙赶作业的日子，结果还是看文看漫画看视频拖了一天。
+
+本打算早睡明日早起赶作业，结果还是心血来潮去看游记到现在。
+
+在河畔看见一个mm独自西藏旅行的日子，感慨什么时候我也有勇气有动力出发。
+
+她的签名是：
+
+
+在面对人生的种种态度中，逃避是最可耻的。
+
+
+明日早起赶作业。
+
+  
+
+  <div class="status">
+    <div class="col-md-10 meta visible-lg visible-md">
+      <span class="glyphicon glyphicon-calendar"></span><p>19 Feb 2012</p>
+      <span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#灌水-ref" title="灌水"><p>灌水</p></a><a href="/tags.html#blogspot-ref" title="blogspot"><p>blogspot</p></a><a href="/tags.html#摘抄-ref" title="摘抄"><p>摘抄</p></a>
+      <span class="glyphicon glyphicon-comment"></span><a href="/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html#comments"><p>Comments<span class="ds-thread-count" data-thread-key="/%E7%81%8C%E6%B0%B4/2012-02/在面对人生的种种态度中，逃避是最可耻的" data-count-type="comments"></span></p></a>
+    </div>
+    
+    <div class="clearfix"></div>
+  </div>
+</div>
+
 
 <!-- Pagination links -->
 <div class="pull-right">
-  {% if paginator.previous_page %}
-  {% if paginator.previous_page == 1 %}
-  <a class="btn btn-primary btn-sm" href="/">Home</a>
-  <a class="btn btn-primary btn-sm" href="/">&laquo; Prev</a>
-  {% else %}
-  <a class="btn btn-primary btn-sm" href="/">Home</a>
-  <a class="btn btn-primary btn-sm" href="/page{{paginator.previous_page}}/">&laquo; Prev</a>
-  {% endif %}
-  {% else %}
+  
   <span><a class="btn btn-primary btn-sm disabled" href="/">Home</a></span>
   <span><a class="btn btn-primary btn-sm disabled">&laquo; Prev</a></span>
-  {% endif %}
-  <span><a class="btn btn-primary btn-sm disabled">Page: {{paginator.page}} of {{paginator.total_pages}}</a></span>
-  {% if paginator.next_page %}
-  <a class="btn btn-primary btn-sm" href="/page{{paginator.next_page}}/">Next &raquo;</a>
-  <a class="btn btn-primary btn-sm" href="/page{{paginator.total_pages}}/">Last</a>
-  {% else if paginator.page == paginator.total_pages %}
-  <span><a class="btn btn-primary btn-sm disabled">Next &raquo;</a></span>
-  <span><a class="btn btn-primary btn-sm disabled">Last</a></span>
-  {% endif %}
+  
+  <span><a class="btn btn-primary btn-sm disabled">Page: 1 of 4</a></span>
+  
+  <a class="btn btn-primary btn-sm" href="/page2/">Next &raquo;</a>
+  <a class="btn btn-primary btn-sm" href="/page4/">Last</a>
+  
 </div>
+
+          </article>
+
+          <aside class="col-md-3 visible-lg visible-md">
+                        <section>
+        <h4>Categories</h4>
+        <div class="tag_box">
+          <ul>
+          
+          
+
+
+  
+     
+    	<li><a href="/categories.html#other-ref">
+    		other <span>3</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#每周一行-ref">
+    		每周一行 <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#留学-ref">
+    		留学 <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#acg-ref">
+    		acg <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#灌水-ref">
+    		灌水 <span>7</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#总结与计划-ref">
+    		总结与计划 <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#使用jekyll建立个人网站-ref">
+    		使用jekyll建立个人网站 <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#开发ios应用入门-ref">
+    		开发ios应用入门 <span>1</span>
+    	</a></li>
+     
+    	<li><a href="/categories.html#编程工具/方法-ref">
+    		编程工具/方法 <span>1</span>
+    	</a></li>
+    
+  
+
+ 
+          </ul>
+        </div>
+      </section>
+
+
+            <section>
+        <h4>Recently Posts</h4>
+        <ul>
+        
+          <li><a href="/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html">OSX10.9.4安装Subversion1.8.10</a></li>
+        
+          <li><a href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html">在自己的设备上运行自己写的iOS应用</a></li>
+        
+          <li><a href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html">解决jekyll因为categories含有中文而崩溃的问题</a></li>
+        
+          <li><a href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html">2013已经过去，2014来了</a></li>
+        
+          <li><a href="/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html">在面对人生的种种态度中，逃避是最可耻的。</a></li>
+        
+          <li><a href="/%E7%81%8C%E6%B0%B4/2011-05/%E4%BB%8E%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%87%BA%E6%88%91%E6%9D%BE%E6%87%88%E4%BA%86%E5%A4%9A%E4%B9%85.html">从写博客的时间间隔可以看出我松懈了多久</a></li>
+        
+          <li><a href="/%E7%81%8C%E6%B0%B4/2011-04/%E8%A2%AB%E4%BA%BA%E9%81%97%E5%BF%98%E7%9A%84%E8%A7%92%E8%90%BD.html">被人遗忘的角落</a></li>
+        
+          <li><a href="/%E7%81%8C%E6%B0%B4/2011-04/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B%E5%B9%B6%E4%B8%8D%E6%84%8F%E5%91%B3%E8%A6%81%E6%8A%8A%E4%BB%A5%E5%89%8D%E7%9A%84%E6%97%A5%E5%BF%97%E9%83%BD%E5%88%A0%E9%99%A4%E4%BA%86%E9%87%8D%E6%96%B0%E6%9D%A5%E8%BF%87.html">新的开始并不意味要把以前的日志都删除了重新来过</a></li>
+        
+          <li><a href="/%E7%81%8C%E6%B0%B4/2010-12/%E5%BA%94%E8%AF%A5%E4%BB%8E%E6%AD%A4%E5%88%BB%E5%BC%80%E5%A7%8B%E6%94%B9%E5%8F%98%EF%BC%81%EF%BC%81%EF%BC%81.html">应该从此刻开始改变！！！</a></li>
+        
+          <li><a href="/%E7%81%8C%E6%B0%B4/2010-12/%E8%BF%99%E5%8D%8A%E5%B9%B4%E4%B9%B0%E4%B9%A6%E4%B9%9F%E5%A4%AA%E5%A4%9A%E4%BA%86%E5%90%A7%E3%80%82.html">这半年买书也太多了吧。</a></li>
+        
+        </ul>
+      </section>
+
+
+            
+      <section>
+        <h4>Recently Comments</h4>
+          <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="0" data-show-time="0" data-show-title="0" data-show-admin="0" data-excerpt-length="12"></ul>
+      </section>
+      
+
+
+            
+      <section>
+        <h4>Recently Visitors</h4>
+          <ul class="ds-recent-visitors" data-num-items="12" data-avatar-size="45"></ul>
+      </section>
+      
+
+
+            
+
+
+          </aside>
+
+        </div>
+
+
+      </div>
+<!--<a href="default.html" id="" title="default">default</a>-->
+      <footer class="text-left">
+      <p>&copy; 2014 <a href="/" target="_blank">qhy15</a>. with Help from <a href="http://jekyllbootstrap.com/" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>, <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a> and <a href="https://github.com/Ihavee/ihavee.github.io" target="_blank">Havee's theme.</a></p>
+      </footer>
+    </div> <!-- /container -->
+
+    <script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/jquery.min.js"><\/script>')</script>
+    <script src="//cdn.bootcss.com/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/bootstrap.min.js"><\/script>')</script>
+    <script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/jquery.fancybox.min.js"><\/script>')</script>
+    <script src="/assets/themes/havee/js/webcore.js"></script>
+    
+    <script src="//cdn.bootcss.com/webfont/1.3.0/webfont.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/webfont.min.js"><\/script>')</script>
+    <script type="text/javascript">
+    WebFont.load ({
+        google: {
+            families: ['Ubuntu:400,400italic::latin', 'Cambo::latin', 'PT+Mono::latin']
+        },
+        timeout: 2000 // set the timeout to n secends
+    });
+    </script>
+    
+
+    
+
+
+  <!-- duoshuo Begin -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qhy15"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- duoshuo End -->
+
+
+
+
+
+	
+	<!--多说js加载开始，一个页面只需要加载一次 -->
+	    <script type="text/javascript">
+	      var duoshuoQuery = {short_name:"qhy15"};
+	      (function() {
+	        var ds = document.createElement('script');
+	        ds.type = 'text/javascript';ds.async = true;
+	        ds.src = 'http://static.duoshuo.com/embed.js';
+	        ds.charset = 'UTF-8';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	      })();
+	    </script>
+	    <!--多说js加载结束，一个页面只需要加载一次 -->
+	
+    
+
+    
+
+  </body>
+</html>
+

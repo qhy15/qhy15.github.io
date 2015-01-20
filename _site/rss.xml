@@ -4,13 +4,13 @@
     <title>qhy15's space</title>
     <description>Havee Hobbies, Linux Tips Record。</description>
     <link>/rss.xml</link>
-    <lastBuildDate>Thu, 14 Aug 2014 16:47:36 +0800</lastBuildDate>
-    <pubDate>Thu, 14 Aug 2014 16:47:36 +0800</pubDate>
+    <lastBuildDate>Mon, 25 Aug 2014 14:48:55 +0800</lastBuildDate>
+    <pubDate>Mon, 25 Aug 2014 14:48:55 +0800</pubDate>
     <ttl>1800</ttl>
 
     
     <item>
-      <title><![CDATA[OSX10_9_4安装Subversion1_8_10]]></title>
+      <title><![CDATA[OSX10.9.4安装Subversion1.8.10]]></title>
       <description>&lt;h4&gt;1. 从&lt;a href=&quot;http://archive.apache.org/dist/subversion/&quot;&gt;官网&lt;/a&gt;下载安装subversion-1.8.10的源码&lt;/h4&gt;
 
 &lt;h4&gt;2. 安装serf&lt;/h4&gt;
@@ -33,6 +33,14 @@ cd serf/
 &lt;blockquote&gt;
 &lt;p&gt;# get-deps.sh -- download the dependencies useful for building Subversion&lt;/p&gt;
 &lt;/blockquote&gt;
+
+&lt;h3&gt;2014年08月25日 update&lt;/h3&gt;
+
+&lt;h4&gt;注意：这条指令下载的库中serf不是最新的，使用其会出现如下错误：&lt;/h4&gt;
+
+&lt;p&gt;svn: E170000: Unrecognized URL scheme for http://x.x.x.x&lt;/p&gt;
+
+&lt;p&gt;请去&lt;a href=&quot;http://code.google.com/p/serf/downloads/list&quot;&gt;http://code.google.com/p/serf/downloads/list&lt;/a&gt;下载最新的serf代码。&lt;/p&gt;
 
 &lt;h5&gt;2.1 安装Scons&lt;/h5&gt;
 
@@ -68,9 +76,7 @@ cd serf/
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    MacBook-Pro:serf qhy15$ open .saved_config
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;在文件中修改。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    make
-    sudo make install
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
 &lt;h5&gt;2.3安装serf&lt;/h5&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ scons install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -84,7 +90,7 @@ cd serf/
 &lt;h4&gt;3. 安装SVN&lt;/h4&gt;
 
 &lt;p&gt;进入svn根目录（即serf目录的上一层），然后一次执行：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;./configure 
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;./configure --with-serf=/path/to/serf
 make
 sudo make install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -127,8 +133,8 @@ sudo ln -Ff /usr/local/bin/svnversion svnversion
 &lt;li&gt;&lt;a href=&quot;http://samoldak.com/updating-to-svn-1-8-for-mac-os-x-10-8/&quot;&gt;Updating to SVN 1.8 for Mac OSX 10.8&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 </description>
-      <link>/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</link>
-      <guid>/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4安装Subversion1.8.10</guid>
+      <link>/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</link>
+      <guid>/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4安装Subversion1.8.10</guid>
       <pubDate>Thu, 14 Aug 2014 23:55:00 +0800</pubDate>
     </item>
     

@@ -1,27 +1,379 @@
----
-layout: nil
-title : {{ page.title | xml_escape }}
----
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>{{ site.title }}</title>
-  <link href="{{ site.production_url }}/{{ site.JB.atom_path }}" rel="self"/>
-  <link href="{{ site.production_url }}"/>
-  <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>{{ site.production_url }}</id>
+  <title>qhy15's space</title>
+  <link href="//atom.xml" rel="self"/>
+  <link href=""/>
+  <updated>2014-08-25T14:48:55+08:00</updated>
+  <id></id>
   <author>
-    <name>{{ site.author.name }}</name>
+    <name>qhy15</name>
   </author>
 
-  {% for post in site.posts %}
+  
   <entry>
-    <title>{{ post.title | xml_escape }}</title>
-    <link href="{{ site.production_url }}{{ post.url }}"/>
-    <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>{{ site.production_url }}{{ post.id }}</id>
-    <content type="html">{{ post.content | strip_html | truncate:300 | xml_escape }}</content>
+    <title>OSX10.9.4安装Subversion1.8.10</title>
+    <link href="/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html"/>
+    <updated>2014-08-14T23:55:00+08:00</updated>
+    <id>/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4安装Subversion1.8.10</id>
+    <content type="html">1. 从官网下载安装subversion-1.8.10的源码
+
+2. 安装serf
+
+1.8以上的SVN需要使用serf。所以需要先安装serf。
+
+
+The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf.
+
+
+2.1 下载serf
+
+使用terminal执行：
+cd ~/path/to/subversion-1.8.10
+sh get-deps.sh serf
+cd serf/
+
+其中get-deps.sh包含下载安装Subversion所...</content>
   </entry>
-  {% endfor %}
+  
+  <entry>
+    <title>在自己的设备上运行自己写的iOS应用</title>
+    <link href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html"/>
+    <updated>2014-07-11T01:33:12+08:00</updated>
+    <id>/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/在自己的设备上运行自己写的iOS应用</id>
+    <content type="html">1、在Xcode中添加开发者账户id
+
+
+在官网注册成为developer
+在Xcode中添加你的开发者账户
+Preferences-&amp;gt;Accounts
+
+
+添加成功后，显示如下图。
+
+
+如果没交会员费（99美刀一年，iOS与Mac），就会提示Joint。
+点击Joint弹出网页，可申请加入
+iOS Developer Program - Membership for one year
+
+2、绑定用来运行应用的设备
+
+
+把iPhone/iPad连接到Mac。
+Xcode中，Window &amp;gt; Organizer，选择需要绑定的设备。
+点击Use for Development按...</content>
+  </entry>
+  
+  <entry>
+    <title>解决jekyll因为categories含有中文而崩溃的问题</title>
+    <link href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html"/>
+    <updated>2014-07-10T00:00:00+08:00</updated>
+    <id>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/解决jekyll因为categories含有中文而崩溃的问题</id>
+    <content type="html">背景
+
+jekyll 版本   2.0.3
+之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。
+
+问题描述
+
+①在.md中加入  
+categories: &amp;quot;中文&amp;quot;
+
+出现如下错误：
+jekyll 2.0.3 | Error:  invalid byte sequence in US-ASCII
+
+②在.md的名称中涉及到中文，例如
+2010-05-10-灌水.md
+
+也会出现①中相同错误。
+
+思考
+
+1、定位错误
+
+build运行时，打印详细错误：
+Generating... 
+/Users/qhy15/.rv...</content>
+  </entry>
+  
+  <entry>
+    <title>2013已经过去，2014来了</title>
+    <link href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html"/>
+    <updated>2013-12-30T03:16:00+08:00</updated>
+    <id>/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013已经过去，2014来了</id>
+    <content type="html">2013年的总结
+
+学业方面
+
+上半年，我研究生毕业了。
+
+虽然赶论文赶得昏天黑地，怨天怨地，但好歹是过了。
+
+然后毕业散伙饭，人情饭也顺利通过。
+
+工作方面
+
+下半年，我参加工作了，然后在工作2个月后辞掉了工作。
+
+找工作的一切都是我爸出面搞定的，辞职的一切都是我自己出面搞定的。
+
+10月底辞职，11月初搞定了辞职事宜。
+
+其它
+
+11月，12月本来应该学车但是又因为身份证拖延了。
+
+iOS也没有看进去。
+
+生活
+
+并没有减肥成功。
+去峨眉山乐山、西安、张家界凤凰 各旅游一次。
+
+
+
+就这样，2013过去了，迎来了2014
+
+2014我的目标是找到一个新的工作，其实我想说什么都可以，因...</content>
+  </entry>
+  
+  <entry>
+    <title>在面对人生的种种态度中，逃避是最可耻的。</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html"/>
+    <updated>2012-02-19T09:19:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2012-02/在面对人生的种种态度中，逃避是最可耻的</id>
+    <content type="html">本该是假日结束前匆忙赶作业的日子，结果还是看文看漫画看视频拖了一天。
+
+本打算早睡明日早起赶作业，结果还是心血来潮去看游记到现在。
+
+在河畔看见一个mm独自西藏旅行的日子，感慨什么时候我也有勇气有动力出发。
+
+她的签名是：
+
+
+在面对人生的种种态度中，逃避是最可耻的。
+
+
+明日早起赶作业。
+</content>
+  </entry>
+  
+  <entry>
+    <title>从写博客的时间间隔可以看出我松懈了多久</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2011-05/%E4%BB%8E%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%87%BA%E6%88%91%E6%9D%BE%E6%87%88%E4%BA%86%E5%A4%9A%E4%B9%85.html"/>
+    <updated>2011-05-03T14:12:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2011-05/从写博客的时间间隔可以看出我松懈了多久</id>
+    <content type="html">自从上次抒发了志向之后又过了很久，51看了闲书几本漫画几本。
+
+
+现在我偶尔还是觉得自己可能是电脑天才，只不过没有掉在合适的土壤里而已…而且，我也不确定我还有激情用10000个小时的努力去成为一个电脑天才了。
+
+
+摘自http://book.douban.com/review/3557193/
+何其相似何其巧合。努力吧少年（心智上）！
+
+
+
+看上学记，断断续续一个月总算是囫囵吞枣的看了一遍。今天最有感悟的一句话是
+
+
+The only escape is stupidity.
+
+
+上学记应该好好再看看再思考，有些感悟稍纵即逝。
+</content>
+  </entry>
+  
+  <entry>
+    <title>被人遗忘的角落</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2011-04/%E8%A2%AB%E4%BA%BA%E9%81%97%E5%BF%98%E7%9A%84%E8%A7%92%E8%90%BD.html"/>
+    <updated>2011-04-19T17:01:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2011-04/被人遗忘的角落</id>
+    <content type="html">真希望我就此销声匿迹，没人再记得我。
+一切重新开始，不会再有这么大压力。
+
+我要做一个有头脑有精力有热情的人！
+
+投入10000个小时 成为我想成为的人。
+成为一个不再抱怨的人，把现实生活经营的很好并从中获得乐趣，还能做自己感兴趣的事的人。
+
+李笑来老师 的多次提到兴趣或者热情并不是天生的，而是后天做事时产生的。
+
+用10000个小时成为一名hacker！
+每年1000个小时，10年。平均每天要3小时。
+每年3000个小时，也要3年+。平均每天9小时。  
+</content>
+  </entry>
+  
+  <entry>
+    <title>新的开始并不意味要把以前的日志都删除了重新来过</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2011-04/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B%E5%B9%B6%E4%B8%8D%E6%84%8F%E5%91%B3%E8%A6%81%E6%8A%8A%E4%BB%A5%E5%89%8D%E7%9A%84%E6%97%A5%E5%BF%97%E9%83%BD%E5%88%A0%E9%99%A4%E4%BA%86%E9%87%8D%E6%96%B0%E6%9D%A5%E8%BF%87.html"/>
+    <updated>2011-04-18T17:28:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2011-04/新的开始并不意味要把以前的日志都删除了重新来过</id>
+    <content type="html">RT
+</content>
+  </entry>
+  
+  <entry>
+    <title>应该从此刻开始改变！！！</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2010-12/%E5%BA%94%E8%AF%A5%E4%BB%8E%E6%AD%A4%E5%88%BB%E5%BC%80%E5%A7%8B%E6%94%B9%E5%8F%98%EF%BC%81%EF%BC%81%EF%BC%81.html"/>
+    <updated>2010-12-14T17:31:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2010-12/应该从此刻开始改变！！！</id>
+    <content type="html">照例不想干活，即使任务已经堆积如山。
+
+照例在网上闲逛，订阅了之前发现拯救世界不需要内裤外穿，也不需要深夜头带硅胶套影评的博客。
+
+我们是同级生，他却做到了我只是想想的事情。
+
+做有价值的事，而不是到处找论文拼凑出另一个5000。
+
+我想不同。我想改变。 别人却生活的风生水起，而我到处copy论文。
+
+
+
+2013年12月29日 上午8:11  update
+他已经辞了我认为很好的豆瓣的工程师工作，开始了他的GAPYEAR。3年后，我仍然和2010一模一样，不，还少了当年的冲劲。  
+
+
+
+2014年07月09日16:32:49  update
+CMGS现在在湖南卫视工作。还是高大上。
+</content>
+  </entry>
+  
+  <entry>
+    <title>这半年买书也太多了吧。</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2010-12/%E8%BF%99%E5%8D%8A%E5%B9%B4%E4%B9%B0%E4%B9%A6%E4%B9%9F%E5%A4%AA%E5%A4%9A%E4%BA%86%E5%90%A7%E3%80%82.html"/>
+    <updated>2010-12-12T17:28:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2010-12/这半年买书也太多了吧。</id>
+    <content type="html">话说这篇blog已经重复写了4遍了。遍遍丢失草稿，郁闷。于是越来越短。
+
+前两天读库合辑打特价，赶忙入手了0607年的，折合每本15元。后来听说joyo的08合辑才45，没赶上。哎可惜了。
+
+才半年，书架已经放不下了。
+
+
+
+问题在于我将如何搬回家。ORZ
+</content>
+  </entry>
+  
+  <entry>
+    <title>还没荒废么</title>
+    <link href="/%E7%81%8C%E6%B0%B4/2010-05/%E8%BF%98%E6%B2%A1%E8%8D%92%E5%BA%9F%E4%B9%88.html"/>
+    <updated>2010-05-11T03:48:00+08:00</updated>
+    <id>/%E7%81%8C%E6%B0%B4/2010-05/还没荒废么</id>
+    <content type="html">一年没有来了。
+
+墙了一年。一年前的我还梦想英国留学，积极准备。
+
+现在也算积极吧，毕设80分够上电子科大就行。留学什么的再试一次吧。
+</content>
+  </entry>
+  
+  <entry>
+    <title>我居然开始玩仙剑4了！！</title>
+    <link href="/acg/2009-11/%E6%88%91%E5%B1%85%E7%84%B6%E5%BC%80%E5%A7%8B%E7%8E%A9%E4%BB%99%E5%89%914%E4%BA%86%EF%BC%81%EF%BC%81.html"/>
+    <updated>2009-11-05T17:23:00+08:00</updated>
+    <id>/acg/2009-11/我居然开始玩仙剑4了！！</id>
+    <content type="html">09-11-05Can&amp;#39;t believe that!!
+
+我居然开始玩仙剑4了，足以见得我已经很无聊了，不想做事的心情了。完全没有说仙剑4不好的意思。只是我真的对这种单机的不是即时类型的游戏不感冒，ol的你砍我一刀我砍你一刀的类型我也不喜欢。
+
+玩了2天了，觉得没意思。也不是ol的，而且剧情慢说话慢人物说话和动作分开的，总之就是什么都慢。。。又是我讨厌的打斗类型。。。
+
+不想玩了，虽说要欣赏剧情，可是我连看电视进都会快进的人，是只在乎关键信息的。。。而且又不是大家所熟知的李逍遥赵灵儿林月如。。。
+
+放弃
+ps:其实我玩完了。
+    ————2014.07.03
+</content>
+  </entry>
+  
+  <entry>
+    <title>参加Manchester面试会</title>
+    <link href="/%E7%95%99%E5%AD%A6/2009-10/%E5%8F%82%E5%8A%A0Manchester%E9%9D%A2%E8%AF%95%E4%BC%9A.html"/>
+    <updated>2009-10-31T17:22:00+08:00</updated>
+    <id>/%E7%95%99%E5%AD%A6/2009-10/参加Manchester面试会</id>
+    <content type="html">昨天参加了Manchester的面试会，其实说是面试会，不如说是曼大的答疑会。来的老师就是来解答大家报考的疑问的。结果我们一众人都被中介忽悠了，说是面试会，还有可能发offer。。。（囧啦。。。骗人啦。。。）
+
+反正我到了那里，虽说大家都不认识，但是聊聊天等着，过了1个多小时吧。到我了，我进去，老外先是霹雳扒拉说了一大堆，很快。我都没怎么听清。接着，他看了看我的成绩单，和ielts成绩。囧囧的发现我只有华丽丽的5.5分。可爱的老外迅速的把语速降到很慢，还加大了嘴型和动作。谢谢他~~~~然后就叫我提高ielts了，他想说其它的，可能觉得我也听不懂了。还问我有没有问题，我说没有。（他肯定很诧...</content>
+  </entry>
+  
+  <entry>
+    <title>介绍下情况</title>
+    <link href="/other/2009-10/%E4%BB%8B%E7%BB%8D%E4%B8%8B%E6%83%85%E5%86%B5.html"/>
+    <updated>2009-10-30T03:16:00+08:00</updated>
+    <id>/other/2009-10/介绍下情况</id>
+    <content type="html">介绍下我的情况吧：
+
+我在今年（就是09年）上半年的时候，也就是我大三下的时候，找到中介（金矢）咨询我的情况。然后在放暑假前签约。
+
+09下半年，我大四开学，我就开始准备材料。
+
+ps和推荐信是中介帮我搞定的。我上学校教务处开了成绩单，gpa证明和在读证明。
+
+然后，中介明天叫我参加曼大的面试会。囧啦，我的雅思才5.5。。。9.12考的。。。
+
+这么差还去参加个什么劲。。。
+
+中介非叫我去，去就去吧。我也囧惯了。。。
+
+待续。。。
+</content>
+  </entry>
+  
+  <entry>
+    <title>开始走动</title>
+    <link href="/%E6%AF%8F%E5%91%A8%E4%B8%80%E8%A1%8C/2009-10/%E5%BC%80%E5%A7%8B%E8%B5%B0%E5%8A%A8.html"/>
+    <updated>2009-10-29T17:20:00+08:00</updated>
+    <id>/%E6%AF%8F%E5%91%A8%E4%B8%80%E8%A1%8C/2009-10/开始走动</id>
+    <content type="html">今年是在广州读书的最后一年了，我居然都没好好逛过广州。大一时候早早准备的benq照相机，根本没排上过用场。所以决定要好好利用最后一年的时间呀~~~
+
+今天居然rp爆发，在学校的什么抽奖中，得到了长隆欢乐世界的门票。不要钱也~~~我早想去了，好好把握机会。长隆就作为下周的目的地了。
+
+这周还没决定。
+</content>
+  </entry>
+  
+  <entry>
+    <title>2009.5.2</title>
+    <link href="/other/2009-05/2009.5.2.html"/>
+    <updated>2009-05-02T16:42:00+08:00</updated>
+    <id>/other/2009-05/2009.5.2</id>
+    <content type="html">开博纪念
+
+--------------------最近看的书推荐-------------------------------
+
+藏地白皮书
+傅真+毛铭基
+我先是在网上发现了最好金龟换酒的blog，这种很对我的味。她的香港老公也很让人感兴趣。
+居然发现他们的爱情故事，如同神话一般 ，和菜头也有推荐的耶。
+立马上当当定了一本，今上午已看完。
+99居然才9.9，被当当宰。
+不过很久没有产生这么强烈的读书欲望，就是这种感觉，令人兴奋，幸福。
+
+--------------------5.1澳门一日游------------------------------------
+
+好不容易，和同学们...</content>
+  </entry>
+  
+  <entry>
+    <title>xp+ubuntu双系统去ubuntu留xp</title>
+    <link href="/other/2009-02/xp+ubuntu%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%8E%BBubuntu%E7%95%99xp.html"/>
+    <updated>2009-02-25T20:45:43+08:00</updated>
+    <id>/other/2009-02/xp+ubuntu双系统去ubuntu留xp</id>
+    <content type="html">我的本子：lenovo的ideapad，y430。
+
+以前为了做操作系统实验，装了双系统。当初分了100g给ubuntu，现在觉得没有必要。决定了ubuntu，装个虚拟机得了。
+
+首先，google方法，就是1、修改引导程序。2、格式化ubuntu下的分区。
+
+第一步时，我不想进入dos下操作。于是，采用了如下方法：
+在Windows下，下载MbrFix，并解压；打开“命令提示符”，cd到MbrFix目录里，输入如下命令MbrFix /drive 0 fixmbr，在对话提示中输入y后确定。如无意外，这时你重启后可以看到不再有多系统的启动选择，而是直接进入了Windows。
+
+第二步时，...</content>
+  </entry>
+  
 
 </feed>

@@ -1,21 +1,542 @@
----
-layout: none
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>qhy15&#39;s space</title>
+    <description>Havee Hobbies, Linux Tips Record。</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        <title>OSX10.9.4安装Subversion1.8.10</title>
+        <description>&lt;h4&gt;1. 从&lt;a href=&quot;http://archive.apache.org/dist/subversion/&quot;&gt;官网&lt;/a&gt;下载安装subversion-1.8.10的源码&lt;/h4&gt;
+
+&lt;h4&gt;2. 安装serf&lt;/h4&gt;
+
+&lt;p&gt;1.8以上的SVN需要使用serf。所以需要先安装serf。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h5&gt;2.1 下载serf&lt;/h5&gt;
+
+&lt;p&gt;使用terminal执行：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cd ~/path/to/subversion-1.8.10
+sh get-deps.sh serf
+cd serf/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中get-deps.sh包含下载安装Subversion所需文件的指令。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;# get-deps.sh -- download the dependencies useful for building Subversion&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;2014年08月25日 update&lt;/h3&gt;
+
+&lt;h4&gt;注意：这条指令下载的库中serf不是最新的，使用其会出现如下错误：&lt;/h4&gt;
+
+&lt;p&gt;svn: E170000: Unrecognized URL scheme for http://x.x.x.x&lt;/p&gt;
+
+&lt;p&gt;请去&lt;a href=&quot;http://code.google.com/p/serf/downloads/list&quot;&gt;http://code.google.com/p/serf/downloads/list&lt;/a&gt;下载最新的serf代码。&lt;/p&gt;
+
+&lt;h5&gt;2.1 安装Scons&lt;/h5&gt;
+
+&lt;p&gt;Scons的README文件中写到：&lt;code&gt;serf uses SCons 2.3 for its build system.&lt;/code&gt;。所以还需要先安装Scons才能再安装serf。&lt;/p&gt;
+
+&lt;p&gt;以下为安装serf的步骤。&lt;/p&gt;
+
+&lt;h5&gt;2.1.1 从&lt;a href=&quot;http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz&quot;&gt;http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz&lt;/a&gt;位置下载Scons。&lt;/h5&gt;
+
+&lt;h5&gt;2.1.2  将下载的Scons-local-2.3.0.tar.gz解压到serf目录下。&lt;/h5&gt;
+
+&lt;h5&gt;2.1.2  进入到serf目录下执行&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ python scons.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;注意，如果Scons解压到serf的Scons-local-2.3.0目录下，则需要在命令中指明。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ python scons-local-2.3.0/scons.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h5&gt;2.1.3  创建一个symlink &amp;#39;scons&amp;#39;指向scons.py的路径。&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;sudo ln -s /path/to/subversion-1.8.10/serf/scons-local-2.3.0/scons.py scons
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;其中，&lt;code&gt;/path/to/subversion-1.8.10/serf/&lt;/code&gt;为2.1.2中解压Scons的根目录。    &lt;/p&gt;
+
+&lt;h5&gt;2.2 设定目录&lt;/h5&gt;
+
+&lt;p&gt;在安装serf之前，需要指定APR、APU、OPENSSL和PREFIX的路径。&lt;/p&gt;
+
+&lt;p&gt;其中，APR、APU、OPENSSL默认路径为&lt;code&gt;/usr&lt;/code&gt;；PREFIX默认路径为&lt;code&gt;/usr/local&lt;/code&gt;，需要修改为安装serf的路径。&lt;/p&gt;
+
+&lt;p&gt;运行&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ scons APR=/path/to/apr APU=/path/to/apu OPENSSL=/openssl/base PREFIX=/path/to/prefix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;或者直接 &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;    MacBook-Pro:serf qhy15$ open .saved_config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;在文件中修改。&lt;/p&gt;
+
+&lt;h5&gt;2.3安装serf&lt;/h5&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;$ scons install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;结束后用&lt;code&gt;scons -c&lt;/code&gt;清理；如果有问题可以用&lt;code&gt;scons check&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;官方文档说的是直接运行上述语句，而我必须加上python才行否则会提示找不到scons指令。&lt;/p&gt;
+
+&lt;p&gt;我输入的指令为&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;MacBook-Pro:serf qhy15$ python scons install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;3. 安装SVN&lt;/h4&gt;
+
+&lt;p&gt;进入svn根目录（即serf目录的上一层），然后一次执行：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;./configure --with-serf=/path/to/serf
+make
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;即可。&lt;/p&gt;
+
+&lt;p&gt;输入&lt;code&gt;svn --version&lt;/code&gt;，应该输出&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;svn, version 1.8.10 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;4.更新Xcode路径&lt;/h4&gt;
+
+&lt;p&gt;Xcode使用自己安装的svn，版本低，如果打开使用高版本svn的项目会提示：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;requires a newer version of Subversion than Xcode supports.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;所以需要更新Xcode的svn路径。&lt;/p&gt;
+
+&lt;p&gt;执行以下指令即可。先备份原svn指令，再生成指向新版的快捷方式。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;cd /Applications/Xcode.app/Contents/Developer/usr/bin/
+sudo mv ./svn ./svn.org
+sudo mv ./svnadmin ./svnadmin.org
+sudo mv ./svndumpfilter ./svndumpfilter.org
+sudo mv ./svnlook ./svnlook.org
+sudo mv ./svnrdump ./svnrdump.org
+sudo mv ./svnserve ./svnserve.org
+sudo mv ./svnsync ./svnsync.org
+sudo mv ./svnversion ./svnversion.org
+
+sudo ln -Ff /usr/local/bin/svn svn
+sudo ln -Ff /usr/local/bin/svnadmin svnadmin
+sudo ln -Ff /usr/local/bin/svndumpfilter svndumpfilter
+sudo ln -Ff /usr/local/bin/svnlook svnlook
+sudo ln -Ff /usr/local/bin/svnrdump svnrdump
+sudo ln -Ff /usr/local/bin/svnserve svnserve
+sudo ln -Ff /usr/local/bin/svnsync svnsync
+sudo ln -Ff /usr/local/bin/svnversion svnversion
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;参考资料&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/19177699/using-svn-1-8-3-with-xcode-5&quot;&gt;Stack Overflow:using SVN 1.8.3 with Xcode 5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://samoldak.com/updating-to-svn-1-8-for-mac-os-x-10-8/&quot;&gt;Updating to SVN 1.8 for Mac OSX 10.8&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Thu, 14 Aug 2014 23:55:00 +0800</pubDate>
+        <link>/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</link>
+        <guid isPermaLink="true">/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>在自己的设备上运行自己写的iOS应用</title>
+        <description>&lt;h3&gt;1、在Xcode中添加开发者账户id&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在官网注册成为developer&lt;/li&gt;
+&lt;li&gt;在Xcode中添加你的开发者账户&lt;br&gt;
+&lt;code&gt;Preferences&lt;/code&gt;-&amp;gt;&lt;code&gt;Accounts&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;添加成功后，显示如下图。
+&lt;a href=&quot;https://www.flickr.com/photos/126036794@N04/14614922791&quot; title=&quot;Screen Shot 2014-07-10 at 下午1.48.49 by haiyi qian, on Flickr&quot;&gt;&lt;img src=&quot;https://farm6.staticflickr.com/5531/14614922791_3d0255084c_n.jpg&quot; width=&quot;320&quot; height=&quot;168&quot; alt=&quot;Screen Shot 2014-07-10 at 下午1.48.49&quot; align=&quot;center&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如果没交会员费（99美刀一年，iOS与Mac），就会提示&lt;code&gt;Joint&lt;/code&gt;。&lt;br&gt;
+点击&lt;code&gt;Joint&lt;/code&gt;弹出网页，可申请加入
+&lt;code&gt;iOS Developer Program - Membership for one year&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;2、绑定用来运行应用的设备&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;把iPhone/iPad连接到Mac。&lt;/li&gt;
+&lt;li&gt;Xcode中，&lt;code&gt;Window&lt;/code&gt; &amp;gt; &lt;code&gt;Organizer&lt;/code&gt;，选择需要绑定的设备。&lt;/li&gt;
+&lt;li&gt;点击&lt;code&gt;Use for Development&lt;/code&gt;按钮；或者，点击下方的&lt;code&gt;Add to Member Center&lt;/code&gt;按钮。选择自己的开发者账户。&lt;/li&gt;
+&lt;li&gt;在Xcode工具栏&lt;code&gt;Run&lt;/code&gt;按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;3、运行自己编写的iOS应用&lt;/h3&gt;
+
+&lt;p&gt;保持设备与Mac连接状态，点击&lt;code&gt;Run&lt;/code&gt;。  &lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;确保设备处于解锁状态，即，没有锁屏。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在弹出的&lt;code&gt;codesign wants to sign using key&lt;/code&gt;警示框中选择&lt;code&gt;allow&lt;/code&gt;&lt;br&gt;
+原因如下，即每次运行时都要验证你是不是开发者。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Once the code is built, Xcode will need to sign the app using your developer certificate. If prompted with a message that reads “codesign wants to sign using key “&amp;lt;key name&amp;gt;” in your keychain select either Allow or Always Allow (if you do not wish to be prompted during future builds). Once signing is complete the status will change to “Installing &amp;lt;appname&amp;gt;.app on iPhone…”.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 11 Jul 2014 01:33:12 +0800</pubDate>
+        <link>/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html</link>
+        <guid isPermaLink="true">/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html</guid>
+      </item>
+    
+      <item>
+        <title>解决jekyll因为categories含有中文而崩溃的问题</title>
+        <description>&lt;h3&gt;背景&lt;/h3&gt;
+
+&lt;p&gt;jekyll 版本   2.0.3&lt;br&gt;
+之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。&lt;/p&gt;
+
+&lt;h3&gt;问题描述&lt;/h3&gt;
+
+&lt;p&gt;①在.md中加入  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;categories: &amp;quot;中文&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;出现如下错误：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;jekyll 2.0.3 | Error:  invalid byte sequence in US-ASCII
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;②在.md的名称中涉及到中文，例如&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;2010-05-10-灌水.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;也会出现①中相同错误。&lt;/p&gt;
+
+&lt;h3&gt;思考&lt;/h3&gt;
+
+&lt;h4&gt;1、定位错误&lt;/h4&gt;
+
+&lt;p&gt;build运行时，打印详细错误：&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;Generating... 
+/Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `gsub!&amp;#39;: invalid byte sequence in US-ASCII (ArgumentError)
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `sanitized_path&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/post.rb:276:in `destination&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `block in new_files&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:420:in `block (2 levels) in each_site_file&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:419:in `each&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:419:in `block in each_site_file&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:418:in `each&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:418:in `each_site_file&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `new_files&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:24:in `obsolete_files&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:15:in `cleanup!&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:255:in `cleanup&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:44:in `process&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/command.rb:43:in `process_site&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/build.rb:46:in `build&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/build.rb:30:in `process&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/serve.rb:23:in `block (2 levels) in init_with_program&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `call&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `block in execute&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `each&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `execute&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/program.rb:35:in `go&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary.rb:22:in `program&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/bin/jekyll:18:in `&amp;lt;top (required)&amp;gt;&amp;#39;
+from /Users/qhy15/.rvm/rubies/ruby-2.1.1/bin/jekyll:23:in `load&amp;#39;
+from /Users/qhy15/.rvm/rubies/ruby-2.1.1/bin/jekyll:23:in `&amp;lt;main&amp;gt;&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `eval&amp;#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `&amp;lt;main&amp;gt;&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;然后定位到出现错误的位置:&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&#39;red&#39;&gt;
+    /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb
+    &lt;/font&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;119 def self.sanitized_path(base_directory, questionable_path)
+120 clean_path = File.expand_path(questionable_path, fs_root)
+121 clean_path.gsub!(/\A\w\:\//, &amp;#39;/&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;即，造成错误出现的语句为&lt;br&gt;
+    &lt;font color=&#39;red&#39;&gt;
+    clean_path.gsub!(/\A\w:\//, &amp;#39;/&amp;#39;)
+    &lt;/font&gt;&lt;/p&gt;
+
+&lt;h4&gt;2.错误原因分析&lt;/h4&gt;
+
+&lt;p&gt;首先，提示信息&lt;code&gt;invalid byte sequence in US-ASCII&lt;/code&gt;说明了gsub的参数出现了非ASCII字符，这与问题描述中提到的新加入的中文字符对应。所以首先考虑是不是项目的编码方式设置错误。&lt;/p&gt;
+
+&lt;p&gt;但是，jekyll的&lt;a href=&quot;http://jekyllrb.com/docs/configuration/&quot;&gt;官方文档&lt;/a&gt;提到2.0.0之后的版本，默认编码为utf-8；页面中的中文与TAG字段的中文都能支持。&lt;br&gt;
+除此之外，&lt;code&gt;_site&lt;/code&gt;文件夹下的文章对应的html均已经生成，也能排除编码方式设置错误的原因。&lt;/p&gt;
+
+&lt;p&gt;只有根据&lt;br&gt;
+&lt;code&gt;jekyll.rb:121:in &amp;#39;gsub!&amp;#39;: invalid byte sequence in US-ASCII (ArgumentError)&lt;/code&gt;&lt;br&gt;
+为关键词进行搜索。&lt;/p&gt;
+
+&lt;p&gt;在第一个&lt;a href=&quot;http://github.com/jekyll/jekyll/issues/2379&quot;&gt;搜索结果页面&lt;/a&gt;中，有人出现了一样的问题。  &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://github.com/jekyll/jekyll/issues/2379&quot;&gt;页面&lt;/a&gt;中，&lt;a href=&quot;http://github.com/penibelst&quot;&gt;penibelst&lt;/a&gt;首先给出他的质疑：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The Wuxia post contains Chinese characters in front-matter’s tags and category. I don’t think it’s allowed here.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;他认为中国字符不能出现在tag和category中。  &lt;/p&gt;
+
+&lt;p&gt;但是我遇到的问题是仅category中的中文字符有问题，tag中的中文字符是能够支持的。我猜想，tag和category的处理方式应该是一样的，唯一的不同是，根据category的名字在&lt;code&gt;_site文件夹&lt;/code&gt;下生成了对应的文件夹。&lt;br&gt;
+页面中也马上有用户质疑了这个&lt;code&gt;tag和category中不能有非ASCII码字符&lt;/code&gt;的想法。  &lt;/p&gt;
+
+&lt;p&gt;然后，&lt;a href=&quot;http://github.com/albertogg&quot;&gt;albertogg&lt;/a&gt;给出了解决方法，把出错的一行改为如下就能解决问题。&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;clean_path.force_encoding(&amp;#39;UTF-8&amp;#39;).gsub!(/\A\w\:\//, &amp;#39;/&amp;#39;)  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;接着，&lt;a href=&quot;http://github.com/fabianrbz&quot;&gt;fabianrbz&lt;/a&gt;（jekyll的一个contributor）给出了可能造成这个问题的原因：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;he issue was introduced when we started using &lt;code&gt;URL&lt;/code&gt; instead of &lt;code&gt;CGI&lt;/code&gt; this is the commit that introduced &lt;a href=&quot;http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f&quot;&gt;this&lt;/a&gt; issue.
+&lt;br&gt;&lt;br&gt;
+I&amp;#39;ll investigate a bit more the differences between the two.
+&lt;br&gt;
+We can also use &lt;code&gt;addressable/uri&lt;/code&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://github.com/fabianrbz&quot;&gt;fabianrbz&lt;/a&gt;说，他们在使用&lt;code&gt;URL&lt;/code&gt;代替&lt;code&gt;CGI&lt;/code&gt;的时候，发生了&lt;a href=&quot;http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f&quot;&gt;url escape&lt;/a&gt;——
+如果生成的html文件名含有空格时，转换后将指向一个不存在的html文件。&lt;br&gt;
+例如，post
+&lt;font color=red&gt;
+“2014-01-02-foo bar.md”
+&lt;/font&gt;
+时，期待的文件名为
+&lt;font color=red&gt;
+“/2014/01/02/foo%20bar.html”
+&lt;/font&gt;
+，而实际生成的文件名为
+&lt;font color=red&gt;
+“/2014/01/02/foo+bar.html”
+&lt;/font&gt;。&lt;/p&gt;
+
+&lt;p&gt;最后，给出解决方案的&lt;a href=&quot;http://github.com/albertogg&quot;&gt;albertogg&lt;/a&gt;做了进一步的&lt;a href=&quot;http2://github.com/jekyll/jekyll/pull/2420&quot;&gt;研究&lt;/a&gt;，并最终把这个bug&lt;a href=&quot;https://github.com/jekyll/jekyll/pull/2420&quot;&gt;修复&lt;/a&gt;了。  &lt;/p&gt;
+
+&lt;p&gt;总结上述内容，简单来说，造成tag中不支持中文的问题是&lt;code&gt;jekyll 2.0.3&lt;/code&gt;中的一个bug。  &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;What Jekyll is doing right now: It gets a UTF-8 string, when it gets escaped, the string is converted to ASCII, but when it is unescaped it remains ASCII and this is when the problem occurs. &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;jekyll 2.0.3&lt;/code&gt;在处理url时，&lt;code&gt;lib/jekyll/url.rb&lt;/code&gt;中调用escape把UTF-8字符串转换为ASCII格式，但是unescape的时候字符串保持为ASCII格式并没有恢复为UTF-8字符串，导致了bug出现。&lt;br&gt;
+相关bug代码  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;amp;\&amp;#39;()*+,;=:@\/]/)
+ ...
+ URI.unescape(path)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;修复bug后的相关代码为  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt; URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;amp;\&amp;#39;()*+,;=:@\/]/).encode(&amp;#39;utf-8&amp;#39;)
+ ...
+ URI.unescape(path.encode(&amp;#39;utf-8&amp;#39;))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;问题解决办法&lt;/h3&gt;
+
+&lt;h4&gt;1、jekyll 2.0.3&lt;/h4&gt;
+
+&lt;p&gt;修改&lt;code&gt;jekyll-2.0.3/lib/jekyll.rb&lt;/code&gt;文件中&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;clean_path.gsub!(/\A\w\:\//, &amp;#39;/&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;为 &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;clean_path.force_encoding(&amp;#39;UTF-8&amp;#39;).gsub!(/\A\w\:\//, &amp;#39;/&amp;#39;)  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;2、更新jekyll部分代码至最新&lt;/h4&gt;
+
+&lt;p&gt;从&lt;a href=&quot;http://github.com/jekyll/jekyll&quot;&gt;github&lt;/a&gt;同步最新的代码。&lt;/p&gt;
+</description>
+        <pubDate>Thu, 10 Jul 2014 00:00:00 +0800</pubDate>
+        <link>/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html</link>
+        <guid isPermaLink="true">/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html</guid>
+      </item>
+    
+      <item>
+        <title>2013已经过去，2014来了</title>
+        <description>&lt;h1&gt;2013年的总结&lt;/h1&gt;
+
+&lt;h2&gt;学业方面&lt;/h2&gt;
+
+&lt;p&gt;上半年，我研究生毕业了。&lt;/p&gt;
+
+&lt;p&gt;虽然赶论文赶得昏天黑地，怨天怨地，但好歹是过了。&lt;/p&gt;
+
+&lt;p&gt;然后毕业散伙饭，人情饭也顺利通过。&lt;/p&gt;
+
+&lt;h2&gt;工作方面&lt;/h2&gt;
+
+&lt;p&gt;下半年，我参加工作了，然后在工作2个月后辞掉了工作。&lt;/p&gt;
+
+&lt;p&gt;找工作的一切都是我爸出面搞定的，辞职的一切都是我自己出面搞定的。&lt;/p&gt;
+
+&lt;p&gt;10月底辞职，11月初搞定了辞职事宜。&lt;/p&gt;
+
+&lt;h2&gt;其它&lt;/h2&gt;
+
+&lt;p&gt;11月，12月本来应该学车但是又因为身份证拖延了。&lt;/p&gt;
+
+&lt;p&gt;iOS也没有看进去。&lt;/p&gt;
+
+&lt;h2&gt;生活&lt;/h2&gt;
+
+&lt;p&gt;并没有减肥成功。
+去峨眉山乐山、西安、张家界凤凰 各旅游一次。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;h1&gt;就这样，2013过去了，迎来了2014&lt;/h1&gt;
+
+&lt;p&gt;2014我的目标是找到一个新的工作，其实我想说什么都可以，因为工作只是为了改变我的一个状态，一种拖延、得过且过的生活状态。&lt;br&gt;
+但，这个工作的最低标准就是朝九晚五，如果要加班，就要付出相应的报酬。&lt;/p&gt;
+
+&lt;p&gt;另，我的终极目标（不排除将来修改，现阶段的终极目标）就是去日本or上海工作。&lt;/p&gt;
+
+&lt;p&gt;针对上述，制订&lt;strong&gt;2014目标&lt;/strong&gt;：&lt;br&gt;
+1、找到一份工作，限定在手机游戏、手机APP方向。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;旨在通过这份工作，弄清手机软件行业的基本术语、基本开发流程、基本所需要求。&lt;/li&gt;
+&lt;li&gt;朝着一个方向IOS开发使劲。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2、英语能力增加。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;听力能力增加，基本日常交流-雅思听力6-有声书能够听懂大部分。&lt;/li&gt;
+&lt;li&gt;会话能力增加，基本日常交流-雅思口语6。&lt;/li&gt;
+&lt;li&gt;阅读能力增加，英文文档看懂-雅思阅读6-看懂原版书（专业&amp;amp;小说）。&lt;/li&gt;
+&lt;li&gt;写作能力增加，基本日常交流-雅思作文6。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;3、日语能力增加。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;背50音-日常对话-看懂简单漫画（哆啦a梦）-三级水平。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;4、SKIN&amp;amp;BEATY
+&lt;font color=white&gt;
+* 体重50-55KG.
+* 照着刊物图片穿衣服。
+* 简单裸妆（只擦粉）-眼妆头发。
+&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;为了能够实现上述的2014目标，每个月都进行总结性记录。&lt;/strong&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 30 Dec 2013 03:16:00 +0800</pubDate>
+        <link>/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html</link>
+        <guid isPermaLink="true">/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html</guid>
+      </item>
+    
+      <item>
+        <title>在面对人生的种种态度中，逃避是最可耻的。</title>
+        <description>&lt;p&gt;本该是假日结束前匆忙赶作业的日子，结果还是看文看漫画看视频拖了一天。&lt;/p&gt;
+
+&lt;p&gt;本打算早睡明日早起赶作业，结果还是心血来潮去看游记到现在。&lt;/p&gt;
+
+&lt;p&gt;在河畔看见一个mm独自西藏旅行的日子，感慨什么时候我也有勇气有动力出发。&lt;/p&gt;
+
+&lt;p&gt;她的签名是：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在面对人生的种种态度中，逃避是最可耻的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;明日早起赶作业。&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Feb 2012 09:19:00 +0800</pubDate>
+        <link>/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html</link>
+        <guid isPermaLink="true">/%E7%81%8C%E6%B0%B4/2012-02/%E5%9C%A8%E9%9D%A2%E5%AF%B9%E4%BA%BA%E7%94%9F%E7%9A%84%E7%A7%8D%E7%A7%8D%E6%80%81%E5%BA%A6%E4%B8%AD%EF%BC%8C%E9%80%83%E9%81%BF%E6%98%AF%E6%9C%80%E5%8F%AF%E8%80%BB%E7%9A%84.html</guid>
+      </item>
+    
+      <item>
+        <title>从写博客的时间间隔可以看出我松懈了多久</title>
+        <description>&lt;p&gt;自从上次抒发了志向之后又过了很久，51看了闲书几本漫画几本。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;现在我偶尔还是觉得自己可能是电脑天才，只不过没有掉在合适的土壤里而已…而且，我也不确定我还有激情用10000个小时的努力去成为一个电脑天才了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;摘自http://book.douban.com/review/3557193/&lt;br&gt;
+何其相似何其巧合。努力吧少年（心智上）！&lt;/p&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;看&lt;a href=&quot;http://book.douban.com/subject/1859140/&quot;&gt;上学记&lt;/a&gt;，断断续续一个月总算是囫囵吞枣的看了一遍。今天最有感悟的一句话是&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The only escape is stupidity.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;上学记应该好好再看看再思考，有些感悟稍纵即逝。&lt;/p&gt;
+</description>
+        <pubDate>Tue, 03 May 2011 14:12:00 +0800</pubDate>
+        <link>/%E7%81%8C%E6%B0%B4/2011-05/%E4%BB%8E%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%87%BA%E6%88%91%E6%9D%BE%E6%87%88%E4%BA%86%E5%A4%9A%E4%B9%85.html</link>
+        <guid isPermaLink="true">/%E7%81%8C%E6%B0%B4/2011-05/%E4%BB%8E%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%87%BA%E6%88%91%E6%9D%BE%E6%87%88%E4%BA%86%E5%A4%9A%E4%B9%85.html</guid>
+      </item>
+    
+      <item>
+        <title>被人遗忘的角落</title>
+        <description>&lt;p&gt;真希望我就此销声匿迹，没人再记得我。&lt;br&gt;
+一切重新开始，不会再有这么大压力。&lt;/p&gt;
+
+&lt;p&gt;我要做一个有头脑有精力有热情的人！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/04/the_dan_plan.html&quot;&gt;投入10000个小时&lt;/a&gt; 成为我想成为的人。&lt;br&gt;
+成为一个不再抱怨的人，把现实生活经营的很好并从中获得乐趣，还能做自己感兴趣的事的人。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.lixiaolai.com/&quot;&gt;李笑来老师&lt;/a&gt; 的多次提到兴趣或者热情并不是天生的，而是后天做事时产生的。&lt;/p&gt;
+
+&lt;p&gt;用10000个小时成为一名hacker！&lt;br&gt;
+每年1000个小时，10年。平均每天要3小时。&lt;br&gt;
+每年3000个小时，也要3年+。平均每天9小时。  &lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Apr 2011 17:01:00 +0800</pubDate>
+        <link>/%E7%81%8C%E6%B0%B4/2011-04/%E8%A2%AB%E4%BA%BA%E9%81%97%E5%BF%98%E7%9A%84%E8%A7%92%E8%90%BD.html</link>
+        <guid isPermaLink="true">/%E7%81%8C%E6%B0%B4/2011-04/%E8%A2%AB%E4%BA%BA%E9%81%97%E5%BF%98%E7%9A%84%E8%A7%92%E8%90%BD.html</guid>
+      </item>
+    
+      <item>
+        <title>新的开始并不意味要把以前的日志都删除了重新来过</title>
+        <description>&lt;h3&gt;RT&lt;/h3&gt;
+</description>
+        <pubDate>Mon, 18 Apr 2011 17:28:00 +0800</pubDate>
+        <link>/%E7%81%8C%E6%B0%B4/2011-04/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B%E5%B9%B6%E4%B8%8D%E6%84%8F%E5%91%B3%E8%A6%81%E6%8A%8A%E4%BB%A5%E5%89%8D%E7%9A%84%E6%97%A5%E5%BF%97%E9%83%BD%E5%88%A0%E9%99%A4%E4%BA%86%E9%87%8D%E6%96%B0%E6%9D%A5%E8%BF%87.html</link>
+        <guid isPermaLink="true">/%E7%81%8C%E6%B0%B4/2011-04/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B%E5%B9%B6%E4%B8%8D%E6%84%8F%E5%91%B3%E8%A6%81%E6%8A%8A%E4%BB%A5%E5%89%8D%E7%9A%84%E6%97%A5%E5%BF%97%E9%83%BD%E5%88%A0%E9%99%A4%E4%BA%86%E9%87%8D%E6%96%B0%E6%9D%A5%E8%BF%87.html</guid>
+      </item>
+    
+      <item>
+        <title>应该从此刻开始改变！！！</title>
+        <description>&lt;p&gt;照例不想干活，即使任务已经堆积如山。&lt;/p&gt;
+
+&lt;p&gt;照例在网上闲逛，订阅了之前发现&lt;code&gt;拯救世界不需要内裤外穿，也不需要深夜头带硅胶套&lt;/code&gt;影评的&lt;a href=&quot;http://cmgs.me/&quot;&gt;博客&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们是同级生，他却做到了我只是想想的事情。&lt;/p&gt;
+
+&lt;p&gt;做有价值的事，而不是到处找论文拼凑出另一个5000。&lt;/p&gt;
+
+&lt;p&gt;我想不同。我想改变。 别人却生活的风生水起，而我到处copy论文。&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;2013年12月29日 上午8:11  update&lt;br&gt;
+他已经辞了我认为很好的豆瓣的工程师工作，开始了他的GAPYEAR。3年后，我仍然和2010一模一样，不，还少了当年的冲劲。  &lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;2014年07月09日16:32:49  update&lt;br&gt;
+CMGS现在在湖南卫视工作。还是高大上。&lt;/p&gt;
+</description>
+        <pubDate>Tue, 14 Dec 2010 17:31:00 +0800</pubDate>
+        <link>/%E7%81%8C%E6%B0%B4/2010-12/%E5%BA%94%E8%AF%A5%E4%BB%8E%E6%AD%A4%E5%88%BB%E5%BC%80%E5%A7%8B%E6%94%B9%E5%8F%98%EF%BC%81%EF%BC%81%EF%BC%81.html</link>
+        <guid isPermaLink="true">/%E7%81%8C%E6%B0%B4/2010-12/%E5%BA%94%E8%AF%A5%E4%BB%8E%E6%AD%A4%E5%88%BB%E5%BC%80%E5%A7%8B%E6%94%B9%E5%8F%98%EF%BC%81%EF%BC%81%EF%BC%81.html</guid>
+      </item>
+    
+      <item>
+        <title>这半年买书也太多了吧。</title>
+        <description>&lt;p&gt;话说这篇blog已经重复写了4遍了。遍遍丢失草稿，郁闷。于是越来越短。&lt;/p&gt;
+
+&lt;p&gt;前两天读库合辑打特价，赶忙入手了0607年的，折合每本15元。后来听说joyo的08合辑才45，没赶上。哎可惜了。&lt;/p&gt;
+
+&lt;p&gt;才半年，书架已经放不下了。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.flickr.com/photos/126036794@N04/14588021056&quot; title=&quot;A29A63BEF7E6E687EA5698AB00BF9621_500 by haiyi qian, on Flickr&quot;&gt;&lt;img src=&quot;https://farm6.staticflickr.com/5484/14588021056_739a7a57d6_o.jpg&quot; width=&quot;320&quot; height=&quot;240&quot; alt=&quot;A29A63BEF7E6E687EA5698AB00BF9621_500&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;问题在于我将如何搬回家。ORZ&lt;/p&gt;
+</description>
+        <pubDate>Sun, 12 Dec 2010 17:28:00 +0800</pubDate>
+        <link>/%E7%81%8C%E6%B0%B4/2010-12/%E8%BF%99%E5%8D%8A%E5%B9%B4%E4%B9%B0%E4%B9%A6%E4%B9%9F%E5%A4%AA%E5%A4%9A%E4%BA%86%E5%90%A7%E3%80%82.html</link>
+        <guid isPermaLink="true">/%E7%81%8C%E6%B0%B4/2010-12/%E8%BF%99%E5%8D%8A%E5%B9%B4%E4%B9%B0%E4%B9%A6%E4%B9%9F%E5%A4%AA%E5%A4%9A%E4%BA%86%E5%90%A7%E3%80%82.html</guid>
+      </item>
+    
   </channel>
 </rss>

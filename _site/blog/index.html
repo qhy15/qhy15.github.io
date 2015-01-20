@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="UTF-8">
+  
+	<meta name="description" content="Landing Page for the blog">
+  
+	<meta name="author" content="Qian Haiyi">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Abdel Raoof's Blog &middot; qhy15's space
+    
+  </title>
+
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/bootstrap.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/app.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/github.css">
+
+  <script src="/assets/js/all.js"></script>
+  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/jekyll-search.js"></script>
+
+
+  
+
+  
+  <style type="text/css">
+        a,a:hover,a:focus {
+          color:#DC572E;
+        }
+  </style>
+  
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="128x128" href="http://localhost:4000/assets/images/favicon-128.png">
+  <link rel="shortcut icon" href="http://localhost:4000/assets/images/favicon-16.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+</head>
+
+  <body>
+                  <div class="navbar navbar-default visible-xs">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">qhy15's space</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        
+                          <li>
+                            <a href="/about/">About</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/resume/">Resume</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/blog/">Blog</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/tags/">Tags</a>
+                          </li>
+                        
+                          <li>
+                            <a href="/archive/">Archive</a>
+                          </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+        <div class="row">
+          <div class="hidden-xs col-md-2 col-sm-3 orange sidebar">
+            <aside>
+  <div class="row">
+    <div class="col-md-12 text-center">
+        
+        <h1 class="text-center" style="margin-top:0px">&nbsp;<a href="/" class="icon icon-back"></a></h1>
+        
+  	</div>
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+        <ul class="left-nav">
+        
+          <li class="left-nav-item">
+            <a href="/about/">About</a>
+          </li>
+        
+          <li class="left-nav-item">
+            <a href="/resume/">Resume</a>
+          </li>
+        
+          <li class="left-nav-item">
+            <a href="/blog/">Blog</a>
+          </li>
+        
+          <li class="left-nav-item">
+            <a href="/tags/">Tags</a>
+          </li>
+        
+          <li class="left-nav-item">
+            <a href="/archive/">Archive</a>
+          </li>
+        
+        </ul>
+  	</div>
+  </div>	
+</aside>
+          </div>
+          <div class="col-md-10 col-sm-9 col-md-offset-2 col-sm-offset-3">
+            <div class="row">
+              
+              <article class="col-md-12 justified">
+                <h1 class="post-title">
+                  <a href="/blog/2014/08/14/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10" class="orange-link">
+                    Osx10.9.4安装subversion1.8.10
+                  </a>
+                </h1>
+                <div class="publish-tag">
+                  <span class="fa fa-calendar"></span>&nbsp;PUBLISHED ON August 14, 2014
+                </div>
+                <br/>
+                <h4 id="httparchiveapacheorgdistsubversionsubversion-1810">1. 从<a href="http://archive.apache.org/dist/subversion/">官网</a>下载安装subversion-1.8.10的源码</h4>
+<p>####2. 安装serf</p>
+
+<p>1.8以上的SVN需要使用serf。所以需要先安装serf。</p>
+
+<blockquote>
+  <p>The default SVN install on Mac OS X uses neon, however the new 1.8 version of SVN only supports serf.</p>
+</blockquote>
+
+<h5 id="serf">2.1 下载serf</h5>
+<p>使用terminal执行：</p>
+
+<pre><code>cd ~/path/to/subversion-1.8.10
+sh get-deps.sh serf
+cd serf/
+</code></pre>
+
+<p>其中get-deps.sh包含下载安装Subversion所需文件的指令。</p>
+
+<blockquote>
+  <pre><code># get-deps.sh -- download the dependencies useful for building Subversion
+</code></pre>
+</blockquote>
+
+<h3 id="update">2014年08月25日 update</h3>
+<p>####注意：这条指令下载的库中serf不是最新的，使用其会出现如下错误：</p>
+
+<p>svn: E170000: Unrecognized URL scheme for http://x.x.x.x</p>
+
+<p>请去<a href="http://code.google.com/p/serf/downloads/list">http://code.google.com/p/serf/downloads/list</a>下载最新的serf代码。</p>
+
+<h5 id="scons">2.1 安装Scons</h5>
+
+<p>Scons的README文件中写到：<code>serf uses SCons 2.3 for its build system.</code>。所以还需要先安装Scons才能再安装serf。</p>
+
+<p>以下为安装serf的步骤。</p>
+
+<h5 id="httpprdownloadssourceforgenetsconsscons-local-230targzscons">2.1.1 从<a href="http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz">http://prdownloads.sourceforge.net/scons/scons-local-2.3.0.tar.gz</a>位置下载Scons。</h5>
+
+<h5 id="scons-local-230targzserf">2.1.2	将下载的Scons-local-2.3.0.tar.gz解压到serf目录下。</h5>
+<p>#####2.1.2	进入到serf目录下执行
+	$ python scons.py</p>
+
+<p>注意，如果Scons解压到serf的Scons-local-2.3.0目录下，则需要在命令中指明。</p>
+
+<pre><code>$ python scons-local-2.3.0/scons.py
+</code></pre>
+
+<h5 id="symlink-sconssconspy">2.1.3	创建一个symlink ‘scons’指向scons.py的路径。</h5>
+
+<pre><code>sudo ln -s /path/to/subversion-1.8.10/serf/scons-local-2.3.0/scons.py scons
+</code></pre>
+
+<p>其中，<code>/path/to/subversion-1.8.10/serf/</code>为2.1.2中解压Scons的根目录。	
+#####2.2 设定目录
+在安装serf之前，需要指定APR、APU、OPENSSL和PREFIX的路径。</p>
+
+<p>其中，APR、APU、OPENSSL默认路径为<code>/usr</code>；PREFIX默认路径为<code>/usr/local</code>，需要修改为安装serf的路径。</p>
+
+<p>运行</p>
+
+<pre><code>$ scons APR=/path/to/apr APU=/path/to/apu OPENSSL=/openssl/base PREFIX=/path/to/prefix 或者直接 
+	
+	MacBook-Pro:serf qhy15$ open .saved_config 在文件中修改。
+</code></pre>
+
+<h5 id="serf-1">2.3安装serf</h5>
+
+<pre><code>$ scons install
+</code></pre>
+
+<p>结束后用<code>scons -c</code>清理；如果有问题可以用<code>scons check</code>。</p>
+
+<p>官方文档说的是直接运行上述语句，而我必须加上python才行否则会提示找不到scons指令。</p>
+
+<p>我输入的指令为</p>
+
+<pre><code>MacBook-Pro:serf qhy15$ python scons install
+</code></pre>
+
+<h4 id="svn">3. 安装SVN</h4>
+
+<p>进入svn根目录（即serf目录的上一层），然后一次执行：</p>
+
+<pre><code>./configure --with-serf=/path/to/serf
+make
+sudo make install 即可。
+</code></pre>
+
+<p>输入<code>svn --version</code>，应该输出</p>
+
+<pre><code>svn, version 1.8.10 
+</code></pre>
+
+<h4 id="xcode">4.更新Xcode路径</h4>
+
+<p>Xcode使用自己安装的svn，版本低，如果打开使用高版本svn的项目会提示：</p>
+
+<pre><code>requires a newer version of Subversion than Xcode supports.
+</code></pre>
+
+<p>所以需要更新Xcode的svn路径。</p>
+
+<p>执行以下指令即可。先备份原svn指令，再生成指向新版的快捷方式。</p>
+
+<pre><code>cd /Applications/Xcode.app/Contents/Developer/usr/bin/
+sudo mv ./svn ./svn.org
+sudo mv ./svnadmin ./svnadmin.org
+sudo mv ./svndumpfilter ./svndumpfilter.org
+sudo mv ./svnlook ./svnlook.org
+sudo mv ./svnrdump ./svnrdump.org
+sudo mv ./svnserve ./svnserve.org
+sudo mv ./svnsync ./svnsync.org
+sudo mv ./svnversion ./svnversion.org
+
+sudo ln -Ff /usr/local/bin/svn svn
+sudo ln -Ff /usr/local/bin/svnadmin svnadmin
+sudo ln -Ff /usr/local/bin/svndumpfilter svndumpfilter
+sudo ln -Ff /usr/local/bin/svnlook svnlook
+sudo ln -Ff /usr/local/bin/svnrdump svnrdump
+sudo ln -Ff /usr/local/bin/svnserve svnserve
+sudo ln -Ff /usr/local/bin/svnsync svnsync
+sudo ln -Ff /usr/local/bin/svnversion svnversion
+</code></pre>
+
+<h4 id="section">参考资料</h4>
+<ol>
+  <li><a href="http://stackoverflow.com/questions/19177699/using-svn-1-8-3-with-xcode-5">Stack Overflow:using SVN 1.8.3 with Xcode 5</a></li>
+  <li><a href="http://samoldak.com/updating-to-svn-1-8-for-mac-os-x-10-8/">Updating to SVN 1.8 for Mac OSX 10.8</a></li>
+</ol>
+
+              </article>
+              
+              <article class="col-md-12 justified">
+                <h1 class="post-title">
+                  <a href="/blog/2014/07/11/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8" class="orange-link">
+                    在自己的设备上运行自己写的iOS应用
+                  </a>
+                </h1>
+                <div class="publish-tag">
+                  <span class="fa fa-calendar"></span>&nbsp;PUBLISHED ON July 11, 2014
+                </div>
+                <br/>
+                <h3 id="xcodeid">1、在Xcode中添加开发者账户id</h3>
+<ol>
+  <li>在官网注册成为developer</li>
+  <li>在Xcode中添加你的开发者账户<br />
+<code>Preferences</code>-&gt;<code>Accounts</code></li>
+</ol>
+
+<p>添加成功后，显示如下图。
+<a href="https://www.flickr.com/photos/126036794@N04/14614922791" title="Screen Shot 2014-07-10 at 下午1.48.49 by haiyi qian, on Flickr"><img src="https://farm6.staticflickr.com/5531/14614922791_3d0255084c_n.jpg" width="320" height="168" alt="Screen Shot 2014-07-10 at 下午1.48.49" align="center" /></a></p>
+
+<p>如果没交会员费（99美刀一年，iOS与Mac），就会提示<code>Joint</code>。<br />
+点击<code>Joint</code>弹出网页，可申请加入
+<code>iOS Developer Program - Membership for one year</code></p>
+
+<h3 id="section">2、绑定用来运行应用的设备</h3>
+<ol>
+  <li>把iPhone/iPad连接到Mac。</li>
+  <li>Xcode中，<code>Window</code> &gt; <code>Organizer</code>，选择需要绑定的设备。</li>
+  <li>点击<code>Use for Development</code>按钮；或者，点击下方的<code>Add to Member Center</code>按钮。选择自己的开发者账户。</li>
+  <li>在Xcode工具栏<code>Run</code>按钮旁边，原来选择iOS模拟器的位置，选择绑定的设备。</li>
+</ol>
+
+<h3 id="ios">3、运行自己编写的iOS应用</h3>
+
+<p>保持设备与Mac连接状态，点击<code>Run</code>。  </p>
+
+<p><strong>注意</strong>：</p>
+
+<ul>
+  <li>确保设备处于解锁状态，即，没有锁屏。</li>
+  <li>
+    <p>在弹出的<code>codesign wants to sign using key</code>警示框中选择<code>allow</code>  <br />
+原因如下，即每次运行时都要验证你是不是开发者。</p>
+
+    <pre><code>  Once the code is built, Xcode will need to sign the app using your developer certificate. If prompted with a message that reads “codesign wants to sign using key “&lt;key name&gt;” in your keychain select either Allow or Always Allow (if you do not wish to be prompted during future builds). Once signing is complete the status will change to “Installing &lt;appname&gt;.app on iPhone…”.
+</code></pre>
+  </li>
+</ul>
+
+
+              </article>
+              
+              <article class="col-md-12 justified">
+                <h1 class="post-title">
+                  <a href="/blog/2014/07/10/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98" class="orange-link">
+                    解决jekyll因为categories含有中文而崩溃的问题
+                  </a>
+                </h1>
+                <div class="publish-tag">
+                  <span class="fa fa-calendar"></span>&nbsp;PUBLISHED ON July 10, 2014
+                </div>
+                <br/>
+                <h3 id="section">背景</h3>
+<p>jekyll 版本	2.0.3	
+之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。
+###问题描述</p>
+
+<p>①在.md中加入  </p>
+
+<pre><code>categories:	"中文"
+</code></pre>
+
+<p>出现如下错误：</p>
+
+<pre><code>jekyll 2.0.3 | Error:  invalid byte sequence in US-ASCII
+</code></pre>
+
+<p>②在.md的名称中涉及到中文，例如</p>
+
+<pre><code>2010-05-10-灌水.md
+</code></pre>
+
+<p>也会出现①中相同错误。
+###思考</p>
+
+<h4 id="section-1">1、定位错误</h4>
+
+<p>build运行时，打印详细错误：</p>
+
+<pre><code>Generating... 
+/Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `gsub!': invalid byte sequence in US-ASCII (ArgumentError)
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `sanitized_path'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/post.rb:276:in `destination'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `block in new_files'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:420:in `block (2 levels) in each_site_file'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:419:in `each'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:419:in `block in each_site_file'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:418:in `each'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:418:in `each_site_file'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `new_files'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:24:in `obsolete_files'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:15:in `cleanup!'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:255:in `cleanup'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:44:in `process'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/command.rb:43:in `process_site'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/build.rb:46:in `build'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/build.rb:30:in `process'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/serve.rb:23:in `block (2 levels) in init_with_program'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `call'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `block in execute'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `each'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `execute'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/program.rb:35:in `go'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary.rb:22:in `program'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/bin/jekyll:18:in `&lt;top (required)&gt;'
+from /Users/qhy15/.rvm/rubies/ruby-2.1.1/bin/jekyll:23:in `load'
+from /Users/qhy15/.rvm/rubies/ruby-2.1.1/bin/jekyll:23:in `&lt;main&gt;'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `eval'
+from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `&lt;main&gt;'
+</code></pre>
+
+<p>然后定位到出现错误的位置:</p>
+
+<font color="red">
+	/Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb
+	</font>
+
+<pre><code>119	def self.sanitized_path(base_directory, questionable_path)
+120 clean_path = File.expand_path(questionable_path, fs_root)
+121 clean_path.gsub!(/\A\w\:\//, '/')
+</code></pre>
+
+<p>即，造成错误出现的语句为	
+	<font color="red">
+	clean_path.gsub!(/\A\w\:\//, '/')
+	</font></p>
+
+<h4 id="section-2">2.错误原因分析</h4>
+
+<p>首先，提示信息<code>invalid byte sequence in US-ASCII</code>说明了gsub的参数出现了非ASCII字符，这与问题描述中提到的新加入的中文字符对应。所以首先考虑是不是项目的编码方式设置错误。</p>
+
+<p>但是，jekyll的<a href="http://jekyllrb.com/docs/configuration/">官方文档</a>提到2.0.0之后的版本，默认编码为utf-8；页面中的中文与TAG字段的中文都能支持。<br />
+除此之外，<code>_site</code>文件夹下的文章对应的html均已经生成，也能排除编码方式设置错误的原因。</p>
+
+<p>只有根据<br />
+<code>jekyll.rb:121:in 'gsub!': invalid byte sequence in US-ASCII (ArgumentError)</code><br />
+为关键词进行搜索。</p>
+
+<p>在第一个<a href="http://github.com/jekyll/jekyll/issues/2379">搜索结果页面</a>中，有人出现了一样的问题。  </p>
+
+<p><a href="http://github.com/jekyll/jekyll/issues/2379">页面</a>中，<a href="http://github.com/penibelst">penibelst</a>首先给出他的质疑：</p>
+
+<blockquote>
+  <p>The Wuxia post contains Chinese characters in front-matter’s tags and category. I don’t think it’s allowed here.</p>
+</blockquote>
+
+<p>他认为中国字符不能出现在tag和category中。  </p>
+
+<p>但是我遇到的问题是仅category中的中文字符有问题，tag中的中文字符是能够支持的。我猜想，tag和category的处理方式应该是一样的，唯一的不同是，根据category的名字在<code>_site文件夹</code>下生成了对应的文件夹。<br />
+页面中也马上有用户质疑了这个<code>tag和category中不能有非ASCII码字符</code>的想法。  </p>
+
+<p>然后，<a href="http://github.com/albertogg">albertogg</a>给出了解决方法，把出错的一行改为如下就能解决问题。</p>
+
+<pre><code>clean_path.force_encoding('UTF-8').gsub!(/\A\w\:\//, '/')  
+</code></pre>
+
+<p>接着，<a href="http://github.com/fabianrbz">fabianrbz</a>（jekyll的一个contributor）给出了可能造成这个问题的原因：</p>
+
+<blockquote>
+  <p>he issue was introduced when we started using <code>URL</code> instead of <code>CGI</code> this is the commit that introduced <a href="http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f">this</a> issue.
+<br /><br />
+I’ll investigate a bit more the differences between the two.
+<br />
+We can also use <code>addressable/uri</code>  </p>
+</blockquote>
+
+<p><a href="http://github.com/fabianrbz">fabianrbz</a>说，他们在使用<code>URL</code>代替<code>CGI</code>的时候，发生了<a href="http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f">url escape</a>——
+如果生成的html文件名含有空格时，转换后将指向一个不存在的html文件。<br />
+例如，post
+&lt;font color=red&gt;
+“2014-01-02-foo bar.md”
+&lt;/font&gt;
+时，期待的文件名为
+&lt;font color=red&gt;
+“/2014/01/02/foo%20bar.html”
+&lt;/font&gt;
+，而实际生成的文件名为
+&lt;font color=red&gt;
+“/2014/01/02/foo+bar.html”
+&lt;/font&gt;。</p>
+
+<p>最后，给出解决方案的<a href="http://github.com/albertogg">albertogg</a>做了进一步的<a href="http2://github.com/jekyll/jekyll/pull/2420">研究</a>，并最终把这个bug<a href="https://github.com/jekyll/jekyll/pull/2420">修复</a>了。  </p>
+
+<p>总结上述内容，简单来说，造成tag中不支持中文的问题是<code>jekyll 2.0.3</code>中的一个bug。<br />
+&gt;What Jekyll is doing right now: It gets a UTF-8 string, when it gets escaped, the string is converted to ASCII, but when it is unescaped it remains ASCII and this is when the problem occurs. </p>
+
+<p><code>jekyll 2.0.3</code>在处理url时，<code>lib/jekyll/url.rb</code>中调用escape把UTF-8字符串转换为ASCII格式，但是unescape的时候字符串保持为ASCII格式并没有恢复为UTF-8字符串，导致了bug出现。<br />
+相关bug代码  </p>
+
+<pre><code> URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;\'()*+,;=:@\/]/)
+ ...
+ URI.unescape(path)
+</code></pre>
+
+<p>修复bug后的相关代码为  </p>
+
+<pre><code> URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;\'()*+,;=:@\/]/).encode('utf-8')
+ ...
+ URI.unescape(path.encode('utf-8'))
+</code></pre>
+
+<h3 id="section-3">问题解决办法</h3>
+<p>####1、jekyll 2.0.3
+修改<code>jekyll-2.0.3/lib/jekyll.rb</code>文件中</p>
+
+<pre><code>clean_path.gsub!(/\A\w\:\//, '/') 为	
+
+clean_path.force_encoding('UTF-8').gsub!(/\A\w\:\//, '/')  
+</code></pre>
+
+<h4 id="jekyll">2、更新jekyll部分代码至最新</h4>
+<p>从<a href="http://github.com/jekyll/jekyll">github</a>同步最新的代码。</p>
+
+              </article>
+              
+            </div>
+            <br/>
+  
+            <div class="row">
+              <div class="col-sm-6 col-xs-6 text-left">
+                  
+                    <a class="btn btn-orange" href="/blog/page2">← Older</a>
+                  
+              </div>
+              <div class="col-sm-6 col-xs-6 text-right">
+                  
+                    <span class="btn btn-orange disabled">Newer →</span>
+                  
+              </div>
+            </div>
+            <footer class="row">
+      <div class="col-ms-12 text-center">
+            <hr/>
+            &copy; 2015 - Qian Haiyi. All rights reserved<br/>
+            With help from 
+            <a class="-link" href="http://jekyllrb.com/">Jekyll </a>
+			and
+			<a class="-link" href="http://github.com/olakara/JekyllMetro"> JekyllMetro</a>
+			.
+      </div>
+</footer>
+          </div>
+        </div>
+      </div>  
+      
+      
+      
+	  
+      
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-52149651-1', 'blog-olakara.rhcloud.com');
+        ga('send', 'pageview');
+      </script>
+  </body>
+</html>

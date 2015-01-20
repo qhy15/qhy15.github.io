@@ -4,7 +4,7 @@
   <title>qhy15's space</title>
   <link href="//atom.xml" rel="self"/>
   <link href=""/>
-  <updated>2014-08-14T16:47:36+08:00</updated>
+  <updated>2014-08-25T14:48:55+08:00</updated>
   <id></id>
   <author>
     <name>qhy15</name>
@@ -12,10 +12,10 @@
 
   
   <entry>
-    <title>OSX10_9_4安装Subversion1_8_10</title>
-    <link href="/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html"/>
+    <title>OSX10.9.4安装Subversion1.8.10</title>
+    <link href="/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4%E5%AE%89%E8%A3%85Subversion1.8.10.html"/>
     <updated>2014-08-14T23:55:00+08:00</updated>
-    <id>/osx%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/2014-08/OSX10.9.4安装Subversion1.8.10</id>
+    <id>/%E7%BC%96%E7%A8%8B%E5%B7%A5%E5%85%B7/%E6%96%B9%E6%B3%95/2014-08/OSX10.9.4安装Subversion1.8.10</id>
     <content type="html">1. 从官网下载安装subversion-1.8.10的源码
 
 2. 安装serf

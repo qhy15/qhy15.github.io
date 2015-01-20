@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>解决jekyll因为categories含有中文而崩溃的问题 - qhy15's space</title>
+    
+    <meta name="keywords" content="iOS, MAC, other, qhy15">
+    <meta name="author" content="qhy15">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+
+    <link href="//cdn.bootcss.com/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="//cdn.bootcss.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/assets/themes/havee/css/style.css?body=1" rel="stylesheet" media="all">
+    <link href="/assets/themes/havee/css/pygments.css" rel="stylesheet" media="all">
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" media="all">
+
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="canonical" href="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/%E8%A7%A3%E5%86%B3jekyll%E5%9B%A0%E4%B8%BAcategories%E5%90%AB%E6%9C%89%E4%B8%AD%E6%96%87%E8%80%8C%E5%B4%A9%E6%BA%83%E7%9A%84%E9%97%AE%E9%A2%98.html">
+    <!-- fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="qhy15's space ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="qhy15's space RSS Feed">
+
+  </head>
+
+  <body>
+    <!--[if lte IE 9]>
+    <div class="alert alert-warning">
+      <p>Your Internet Explorer is not supported. Please upgrade your Internet Explorer to version 9+, or use latest <a href="http://www.google.com/chrome/" target="_blank" class="alert-link">Google chrome</a>、<a href="http://www.mozilla.org/firefox/" target="_blank" class="alert-link">Mozilla Firefox</a>.</p>
+      <p>If you are using IE 9 or later, make sure you <a href="http://windows.microsoft.com/en-us/internet-explorer/use-compatibility-view#ie=ie-8" target="_blank" class="alert-link">turn off "Compatibility view"</a>.</p>
+    </div>
+    <![endif]-->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/" title="qhy15's space">qhy15's space</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          
+          
+          
+
+
+  
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+		  
+		  <li><a href="/about/index.html">About Me</a></li>
+          <li>
+          <form id="search-form" class="form-inline visible-lg" role="form">
+            <input type="text" class="form-control input-sm" placeholder="Search" id="query">
+          </form>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right visible-lg visible-md">
+          <li><a href="/rss.xml" target="_blank" title="RSS"><span class="fa fa-rss fa-lg"></span></a></li>
+          
+          <li><a href="https://github.com/qhy15" target="_blank" title="Github"><span class="fa fa-github fa-lg"></span></a></li>
+          
+          
+          
+          
+          
+          <li><a href="http://weibo.com/qhy15" target="_blank" title="Weibo"><span class="fa fa-weibo fa-lg"></span></a></li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+    </nav>
+
+    <div class="container">
+      <div class="content">
+        
+<div class="row">
+
+  <article class="col-md-12 main-contenter">
+    <div id="search-loader" style="display:none;text-align:center">
+      <img src="/assets/themes/havee/images/loading.gif">
+    </div>
+    <div class="page-header">
+      <h2>
+        解决jekyll因为categories含有中文而崩溃的问题
+        
+      </h2>
+	  <div class="bottom">
+		<span class="glyphicon glyphicon-user"></span><p>qhy15</p>
+	    <span class="glyphicon glyphicon-calendar"></span><p>10 Jul 2014</p>
+		<span class="glyphicon glyphicon-folder-open"></span> <a href="/categories.html#使用jekyll建立个人网站-ref" title="使用jekyll建立个人网站"><p>使用jekyll建立个人网站</p></a>
+		<span class="glyphicon glyphicon-tags"></span> <a href="/tags.html#jekyll-ref" title="jekyll"><p>jekyll</p></a>
+		
+      </div>
+    </div>
+    <div class="wrapper"><h3>背景</h3>
+
+<p>jekyll 版本   2.0.3<br>
+之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。</p>
+
+<h3>问题描述</h3>
+
+<p>①在.md中加入  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">categories: &quot;中文&quot;
+</code></pre></div>
+<p>出现如下错误：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">jekyll 2.0.3 | Error:  invalid byte sequence in US-ASCII
+</code></pre></div>
+<p>②在.md的名称中涉及到中文，例如</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">2010-05-10-灌水.md
+</code></pre></div>
+<p>也会出现①中相同错误。</p>
+
+<h3>思考</h3>
+
+<h4>1、定位错误</h4>
+
+<p>build运行时，打印详细错误：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Generating... 
+/Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `gsub!&#39;: invalid byte sequence in US-ASCII (ArgumentError)
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb:121:in `sanitized_path&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/post.rb:276:in `destination&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `block in new_files&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:420:in `block (2 levels) in each_site_file&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:419:in `each&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:419:in `block in each_site_file&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:418:in `each&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:418:in `each_site_file&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:43:in `new_files&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:24:in `obsolete_files&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/cleaner.rb:15:in `cleanup!&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:255:in `cleanup&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/site.rb:44:in `process&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/command.rb:43:in `process_site&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/build.rb:46:in `build&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/build.rb:30:in `process&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll/commands/serve.rb:23:in `block (2 levels) in init_with_program&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `call&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `block in execute&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `each&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/command.rb:220:in `execute&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary/program.rb:35:in `go&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/mercenary-0.3.3/lib/mercenary.rb:22:in `program&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/bin/jekyll:18:in `&lt;top (required)&gt;&#39;
+from /Users/qhy15/.rvm/rubies/ruby-2.1.1/bin/jekyll:23:in `load&#39;
+from /Users/qhy15/.rvm/rubies/ruby-2.1.1/bin/jekyll:23:in `&lt;main&gt;&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `eval&#39;
+from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `&lt;main&gt;&#39;
+</code></pre></div>
+<p>然后定位到出现错误的位置:</p>
+
+<p><font color='red'>
+    /Users/qhy15/.rvm/gems/ruby-2.1.1@global/gems/jekyll-2.0.3/lib/jekyll.rb
+    </font></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">119 def self.sanitized_path(base_directory, questionable_path)
+120 clean_path = File.expand_path(questionable_path, fs_root)
+121 clean_path.gsub!(/\A\w\:\//, &#39;/&#39;)
+</code></pre></div>
+<p>即，造成错误出现的语句为<br>
+    <font color='red'>
+    clean_path.gsub!(/\A\w:\//, &#39;/&#39;)
+    </font></p>
+
+<h4>2.错误原因分析</h4>
+
+<p>首先，提示信息<code>invalid byte sequence in US-ASCII</code>说明了gsub的参数出现了非ASCII字符，这与问题描述中提到的新加入的中文字符对应。所以首先考虑是不是项目的编码方式设置错误。</p>
+
+<p>但是，jekyll的<a href="http://jekyllrb.com/docs/configuration/">官方文档</a>提到2.0.0之后的版本，默认编码为utf-8；页面中的中文与TAG字段的中文都能支持。<br>
+除此之外，<code>_site</code>文件夹下的文章对应的html均已经生成，也能排除编码方式设置错误的原因。</p>
+
+<p>只有根据<br>
+<code>jekyll.rb:121:in &#39;gsub!&#39;: invalid byte sequence in US-ASCII (ArgumentError)</code><br>
+为关键词进行搜索。</p>
+
+<p>在第一个<a href="http://github.com/jekyll/jekyll/issues/2379">搜索结果页面</a>中，有人出现了一样的问题。  </p>
+
+<p><a href="http://github.com/jekyll/jekyll/issues/2379">页面</a>中，<a href="http://github.com/penibelst">penibelst</a>首先给出他的质疑：</p>
+
+<blockquote>
+<p>The Wuxia post contains Chinese characters in front-matter’s tags and category. I don’t think it’s allowed here.</p>
+</blockquote>
+
+<p>他认为中国字符不能出现在tag和category中。  </p>
+
+<p>但是我遇到的问题是仅category中的中文字符有问题，tag中的中文字符是能够支持的。我猜想，tag和category的处理方式应该是一样的，唯一的不同是，根据category的名字在<code>_site文件夹</code>下生成了对应的文件夹。<br>
+页面中也马上有用户质疑了这个<code>tag和category中不能有非ASCII码字符</code>的想法。  </p>
+
+<p>然后，<a href="http://github.com/albertogg">albertogg</a>给出了解决方法，把出错的一行改为如下就能解决问题。</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">clean_path.force_encoding(&#39;UTF-8&#39;).gsub!(/\A\w\:\//, &#39;/&#39;)  
+</code></pre></div>
+<p>接着，<a href="http://github.com/fabianrbz">fabianrbz</a>（jekyll的一个contributor）给出了可能造成这个问题的原因：</p>
+
+<blockquote>
+<p>he issue was introduced when we started using <code>URL</code> instead of <code>CGI</code> this is the commit that introduced <a href="http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f">this</a> issue.
+<br><br>
+I&#39;ll investigate a bit more the differences between the two.
+<br>
+We can also use <code>addressable/uri</code>  </p>
+</blockquote>
+
+<p><a href="http://github.com/fabianrbz">fabianrbz</a>说，他们在使用<code>URL</code>代替<code>CGI</code>的时候，发生了<a href="http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f">url escape</a>——
+如果生成的html文件名含有空格时，转换后将指向一个不存在的html文件。<br>
+例如，post
+<font color=red>
+“2014-01-02-foo bar.md”
+</font>
+时，期待的文件名为
+<font color=red>
+“/2014/01/02/foo%20bar.html”
+</font>
+，而实际生成的文件名为
+<font color=red>
+“/2014/01/02/foo+bar.html”
+</font>。</p>
+
+<p>最后，给出解决方案的<a href="http://github.com/albertogg">albertogg</a>做了进一步的<a href="http2://github.com/jekyll/jekyll/pull/2420">研究</a>，并最终把这个bug<a href="https://github.com/jekyll/jekyll/pull/2420">修复</a>了。  </p>
+
+<p>总结上述内容，简单来说，造成tag中不支持中文的问题是<code>jekyll 2.0.3</code>中的一个bug。  </p>
+
+<blockquote>
+<p>What Jekyll is doing right now: It gets a UTF-8 string, when it gets escaped, the string is converted to ASCII, but when it is unescaped it remains ASCII and this is when the problem occurs. </p>
+</blockquote>
+
+<p><code>jekyll 2.0.3</code>在处理url时，<code>lib/jekyll/url.rb</code>中调用escape把UTF-8字符串转换为ASCII格式，但是unescape的时候字符串保持为ASCII格式并没有恢复为UTF-8字符串，导致了bug出现。<br>
+相关bug代码  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;\&#39;()*+,;=:@\/]/)
+ ...
+ URI.unescape(path)
+</code></pre></div>
+<p>修复bug后的相关代码为  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;\&#39;()*+,;=:@\/]/).encode(&#39;utf-8&#39;)
+ ...
+ URI.unescape(path.encode(&#39;utf-8&#39;))
+</code></pre></div>
+<h3>问题解决办法</h3>
+
+<h4>1、jekyll 2.0.3</h4>
+
+<p>修改<code>jekyll-2.0.3/lib/jekyll.rb</code>文件中</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">clean_path.gsub!(/\A\w\:\//, &#39;/&#39;)
+</code></pre></div>
+<p>为 </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">clean_path.force_encoding(&#39;UTF-8&#39;).gsub!(/\A\w\:\//, &#39;/&#39;)  
+</code></pre></div>
+<h4>2、更新jekyll部分代码至最新</h4>
+
+<p>从<a href="http://github.com/jekyll/jekyll">github</a>同步最新的代码。</p>
+</div>
+    <div class="cc">
+		<br>
+		本作品由 qhy15 创作，采用 
+		 <a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/">CC BY-NC-SA 3.0 许可协议 </a>
+		 进行许可。
+		 <!--
+      <a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">
+        <img title="署名-非商业性使用-相同方式共享 4.0 国际" src="/assets/images/CC.png" alt="License"></img>
+      </a>
+			 -->
+    </div>
+    <div class="row status">
+      <div class="col-md-6">
+        <div class="btn-group">
+          
+          <a class="btn btn-primary btn-sm" href="/%E6%80%BB%E7%BB%93%E4%B8%8E%E8%AE%A1%E5%88%92/2013-12/2013%E5%B7%B2%E7%BB%8F%E8%BF%87%E5%8E%BB%EF%BC%8C2014%E6%9D%A5%E4%BA%86.html" title="2013已经过去，2014来了">&laquo; Prev</a>
+          
+          <a class="btn btn-primary btn-sm" href="/archive.html">Archive</a>
+          
+          <a class="btn btn-primary btn-sm" href="/%E5%BC%80%E5%8F%91ios%E5%BA%94%E7%94%A8%E5%85%A5%E9%97%A8/2014-07/%E5%9C%A8%E8%87%AA%E5%B7%B1%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E8%BF%90%E8%A1%8C%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84iOS%E5%BA%94%E7%94%A8.html" title="在自己的设备上运行自己写的iOS应用">Next &raquo;</a>
+          
+        </div>
+      </div>
+      <div class="col-md-6 visible-lg visible-md">
+      
+
+      </div>
+    </div>
+    
+<div id="comments">
+  <div class="ds-thread" data-thread-key="/%E4%BD%BF%E7%94%A8jekyll%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/2014-07/解决jekyll因为categories含有中文而崩溃的问题"  data-title="解决jekyll因为categories含有中文而崩溃的问题 - qhy15's space"></div>
+</div>
+
+
+  </article>
+
+</div>
+
+
+      </div>
+<!--<a href="default.html" id="" title="default">default</a>-->
+      <footer class="text-left">
+      <p>&copy; 2014 <a href="/" target="_blank">qhy15</a>. with Help from <a href="http://jekyllbootstrap.com/" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>, <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a> and <a href="https://github.com/Ihavee/ihavee.github.io" target="_blank">Havee's theme.</a></p>
+      </footer>
+    </div> <!-- /container -->
+
+    <script src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/jquery.min.js"><\/script>')</script>
+    <script src="//cdn.bootcss.com/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/bootstrap.min.js"><\/script>')</script>
+    <script src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/jquery.fancybox.min.js"><\/script>')</script>
+    <script src="/assets/themes/havee/js/webcore.js"></script>
+    
+    <script src="//cdn.bootcss.com/webfont/1.3.0/webfont.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/assets/themes/havee/js/webfont.min.js"><\/script>')</script>
+    <script type="text/javascript">
+    WebFont.load ({
+        google: {
+            families: ['Ubuntu:400,400italic::latin', 'Cambo::latin', 'PT+Mono::latin']
+        },
+        timeout: 2000 // set the timeout to n secends
+    });
+    </script>
+    
+
+    
+
+
+  <!-- duoshuo Begin -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qhy15"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = 'http://static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+<!-- duoshuo End -->
+
+
+
+
+
+	
+	<!--多说js加载开始，一个页面只需要加载一次 -->
+	    <script type="text/javascript">
+	      var duoshuoQuery = {short_name:"qhy15"};
+	      (function() {
+	        var ds = document.createElement('script');
+	        ds.type = 'text/javascript';ds.async = true;
+	        ds.src = 'http://static.duoshuo.com/embed.js';
+	        ds.charset = 'UTF-8';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+	      })();
+	    </script>
+	    <!--多说js加载结束，一个页面只需要加载一次 -->
+	
+    
+
+    
+
+  </body>
+</html>
+
