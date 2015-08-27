@@ -307,7 +307,7 @@ sudo ln -Ff /usr/local/bin/svnversion svnversion
 
 <h3 id="ios">3、运行自己编写的iOS应用</h3>
 
-<p>保持设备与Mac连接状态，点击<code>Run</code>。  </p>
+<p>保持设备与Mac连接状态，点击<code>Run</code>。</p>
 
 <p><strong>注意</strong>：</p>
 
@@ -340,7 +340,7 @@ sudo ln -Ff /usr/local/bin/svnversion svnversion
 之前_post文件夹下的文章，均是按照模板新写的，只在内容和题目部分、Tag部分涉及到中文，均支持的很好。
 ###问题描述</p>
 
-<p>①在.md中加入  </p>
+<p>①在.md中加入</p>
 
 <pre><code>categories:	"中文"
 </code></pre>
@@ -421,7 +421,7 @@ from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `&lt;main
 <code>jekyll.rb:121:in 'gsub!': invalid byte sequence in US-ASCII (ArgumentError)</code><br />
 为关键词进行搜索。</p>
 
-<p>在第一个<a href="http://github.com/jekyll/jekyll/issues/2379">搜索结果页面</a>中，有人出现了一样的问题。  </p>
+<p>在第一个<a href="http://github.com/jekyll/jekyll/issues/2379">搜索结果页面</a>中，有人出现了一样的问题。</p>
 
 <p><a href="http://github.com/jekyll/jekyll/issues/2379">页面</a>中，<a href="http://github.com/penibelst">penibelst</a>首先给出他的质疑：</p>
 
@@ -429,10 +429,10 @@ from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `&lt;main
   <p>The Wuxia post contains Chinese characters in front-matter’s tags and category. I don’t think it’s allowed here.</p>
 </blockquote>
 
-<p>他认为中国字符不能出现在tag和category中。  </p>
+<p>他认为中国字符不能出现在tag和category中。</p>
 
 <p>但是我遇到的问题是仅category中的中文字符有问题，tag中的中文字符是能够支持的。我猜想，tag和category的处理方式应该是一样的，唯一的不同是，根据category的名字在<code>_site文件夹</code>下生成了对应的文件夹。<br />
-页面中也马上有用户质疑了这个<code>tag和category中不能有非ASCII码字符</code>的想法。  </p>
+页面中也马上有用户质疑了这个<code>tag和category中不能有非ASCII码字符</code>的想法。</p>
 
 <p>然后，<a href="http://github.com/albertogg">albertogg</a>给出了解决方法，把出错的一行改为如下就能解决问题。</p>
 
@@ -446,7 +446,7 @@ from /Users/qhy15/.rvm/gems/ruby-2.1.1/bin/ruby_executable_hooks:15:in `&lt;main
 <br /><br />
 I’ll investigate a bit more the differences between the two.
 <br />
-We can also use <code>addressable/uri</code>  </p>
+We can also use <code>addressable/uri</code></p>
 </blockquote>
 
 <p><a href="http://github.com/fabianrbz">fabianrbz</a>说，他们在使用<code>URL</code>代替<code>CGI</code>的时候，发生了<a href="http://github.com/jekyll/jekyll/commit/eebb6414bf9dbcb3e02ed11b22cde3e6f96b7f4f">url escape</a>——
@@ -464,20 +464,20 @@ We can also use <code>addressable/uri</code>  </p>
 “/2014/01/02/foo+bar.html”
 &lt;/font&gt;。</p>
 
-<p>最后，给出解决方案的<a href="http://github.com/albertogg">albertogg</a>做了进一步的<a href="http2://github.com/jekyll/jekyll/pull/2420">研究</a>，并最终把这个bug<a href="https://github.com/jekyll/jekyll/pull/2420">修复</a>了。  </p>
+<p>最后，给出解决方案的<a href="http://github.com/albertogg">albertogg</a>做了进一步的<a href="http2://github.com/jekyll/jekyll/pull/2420">研究</a>，并最终把这个bug<a href="https://github.com/jekyll/jekyll/pull/2420">修复</a>了。</p>
 
 <p>总结上述内容，简单来说，造成tag中不支持中文的问题是<code>jekyll 2.0.3</code>中的一个bug。<br />
-&gt;What Jekyll is doing right now: It gets a UTF-8 string, when it gets escaped, the string is converted to ASCII, but when it is unescaped it remains ASCII and this is when the problem occurs. </p>
+&gt;What Jekyll is doing right now: It gets a UTF-8 string, when it gets escaped, the string is converted to ASCII, but when it is unescaped it remains ASCII and this is when the problem occurs.</p>
 
 <p><code>jekyll 2.0.3</code>在处理url时，<code>lib/jekyll/url.rb</code>中调用escape把UTF-8字符串转换为ASCII格式，但是unescape的时候字符串保持为ASCII格式并没有恢复为UTF-8字符串，导致了bug出现。<br />
-相关bug代码  </p>
+相关bug代码</p>
 
 <pre><code> URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;\'()*+,;=:@\/]/)
  ...
  URI.unescape(path)
 </code></pre>
 
-<p>修复bug后的相关代码为  </p>
+<p>修复bug后的相关代码为</p>
 
 <pre><code> URI.escape(path, /[^a-zA-Z\d\-._~!$&amp;\'()*+,;=:@\/]/).encode('utf-8')
  ...
